@@ -45,83 +45,6 @@ est_fire                        <- est_fire[1:nrow(reported_fire), ]
 sup    <- read.xlsx(dbstring, sheet = 5, startRow = 1, colNames = TRUE)
 policy <- read.xlsx(dbstring, sheet = 6, startRow = 1, colNames = TRUE)
 
-############################################################################################
-
-### data checks
-
-############################################################################################
-
-which(reported_fire[, 26] != est_fire[, 24])
-which(reported_fire[, 27] != est_fire[, 25])
-table(gather(landuse[, c(4:7)])[, 2])
-table(landuse$Land.tenure)
-
-table(est_fire$AFT)
-table(reported_fire$AFT)
-
-#############################################################################################
-
-### data cleaning
-
-#############################################################################################
-
-data_clean <- function(errors, fixes, data) {
-  
-  stopifnot(exprs = {length(errors) == length(fixes)})
-  
-  x <- data
-  
-  for(i in 1:length(errors)) {
-  
-  x <- apply(x, 2, function(y) {ifelse(y == errors[i], fixes[i], y)})
-    
-  }
-  
-  return(x)
-  
-}
-
-landuse[, 4:7] <-  data_clean(c('Agro-forestry, subsistence-oriented', 'Agroforestry, market-oriented', 'Agroforestry, industrial', 
-                                'Biodiversity Conservation', 'Cattle, Dairy', 'Cropping Swidden', 'Cattle, extensive', 
-                                'Cropping, intensive', 'Cropping, Monoculture', 'Cropping, Monoculture, market-oriented', 
-                                'Hunting, traditional', 'Pastroralism, migratory', 'Pasture, Extensive', 'Forestry, industrial', 
-                                'Logging, commercial', 'Forestry, commercial', 'Cropping, Extensive', 'Agroforestry, subsistence-oriented', 
-                                'Cattle Extensive', 'Cropping, swidden', 'Forestry Industrial', 'Forestry Commercial', 'Cropping, Plantation, Market-oriented'), 
-                              c('Agroforestry, Subsistence-oriented', 'Agroforestry, Market-oriented', 'Agroforestry, Market-oriented', 
-                                'Biodiversity conservation', 'Cattle, Extensive', 'Cropping, Swidden', 'Cattle Extensive', 
-                                'Cropping, Intensive', 'Cropping, Monoculture, Market-oriented', 'Cropping, Monoculture, Market-oriented', 
-                                'Forestry, Traditional', 'Pastoralism, migratory', 'Cattle, Extensive', 'Forestry Industrial', 'Forestry, Industrial', 
-                                'Forestry, Industrial', 'Cropping, Monoculture, Subsistence-oriented', 'Agroforestry, Subsistence-oriented', 
-                                'Cattle, Extensive', 'Cropping, Swidden', 'Forestry, Industrial', 'Forestry, Industrial', 'Cropping, Monoculture, Market-oriented'),
-                              landuse[, 4:7]) 
-
-reported_fire[, 5:6] <-  data_clean(c('Agro-forestry, subsistence-oriented', 'Agroforestry, market-oriented', 'Agroforestry, industrial', 
-                                'Biodiversity Conservation', 'Cattle, Dairy', 'Cropping Swidden', 'Cattle, extensive', 
-                                'Cropping, intensive', 'Cropping, Monoculture', 'Cropping, Monoculture, market-oriented', 
-                                'Hunting, traditional', 'Pastroralism, migratory', 'Pasture, Extensive', 'Forestry, industrial', 
-                                'Logging, commercial', 'Forestry, commercial', 'Cropping, Extensive', 'Agroforestry, subsistence-oriented', 
-                                'Cattle Extensive', 'Cropping, swidden', 'Forestry Industrial', 'Forestry Commercial', 'Cropping, Plantation, Market-oriented'), 
-                              c('Agroforestry, Subsistence-oriented', 'Agroforestry, Market-oriented', 'Agroforestry, Market-oriented', 
-                                'Biodiversity conservation', 'Cattle, Extensive', 'Cropping, Swidden', 'Cattle Extensive', 
-                                'Cropping, Intensive', 'Cropping, Monoculture, Market-oriented', 'Cropping, Monoculture, Market-oriented', 
-                                'Forestry, Traditional', 'Pastoralism, migratory', 'Cattle, Extensive', 'Forestry Industrial', 'Forestry, Industrial', 
-                                'Forestry, Industrial', 'Cropping, Monoculture, Subsistence-oriented', 'Agroforestry, Subsistence-oriented', 
-                                'Cattle, Extensive', 'Cropping, Swidden', 'Forestry, Industrial', 'Forestry, Industrial', 'Cropping, Monoculture, Market-oriented'),
-                              reported_fire[, 5:6]) 
-
-est_fire[, 5:6] <-  data_clean(c('Agro-forestry, subsistence-oriented', 'Agroforestry, market-oriented', 'Agroforestry, industrial', 
-                                      'Biodiversity Conservation', 'Cattle, Dairy', 'Cropping Swidden', 'Cattle, extensive', 
-                                      'Cropping, intensive', 'Cropping, Monoculture', 'Cropping, Monoculture, market-oriented', 
-                                      'Hunting, traditional', 'Pastroralism, migratory', 'Pasture, Extensive', 'Forestry, industrial', 
-                                      'Logging, commercial', 'Forestry, commercial', 'Cropping, Extensive', 'Agroforestry, subsistence-oriented', 
-                                      'Cattle Extensive', 'Cropping, swidden', 'Forestry Industrial', 'Forestry Commercial', 'Cropping, Plantation, Market-oriented'), 
-                                    c('Agroforestry, Subsistence-oriented', 'Agroforestry, Market-oriented', 'Agroforestry, Market-oriented', 
-                                      'Biodiversity conservation', 'Cattle, Extensive', 'Cropping, Swidden', 'Cattle Extensive', 
-                                      'Cropping, Intensive', 'Cropping, Monoculture, Market-oriented', 'Cropping, Monoculture, Market-oriented', 
-                                      'Forestry, Traditional', 'Pastoralism, migratory', 'Cattle, Extensive', 'Forestry Industrial', 'Forestry, Industrial', 
-                                      'Forestry, Industrial', 'Cropping, Monoculture, Subsistence-oriented', 'Agroforestry, Subsistence-oriented', 
-                                      'Cattle, Extensive', 'Cropping, Swidden', 'Forestry, Industrial', 'Forestry, Industrial', 'Cropping, Monoculture, Market-oriented'),
-                                    est_fire[, 5:6]) 
 
 #############################################################################################
 
@@ -262,9 +185,6 @@ uncertainty.range <- function(uncert.frame = est_size_frame, quants = c(0.025, 0
     samples    <- unlist(samples)
     
     
-    print(unlist(list(quantile(samples, qs[1], na.rm = TRUE), quantile(samples, qs[2], na.rm = TRUE), 
-                      quantile(samples, qs[3], na.rm = TRUE))))
-    
     return(unlist(list(quantile(samples, qs[1], na.rm = TRUE), quantile(samples, qs[2], na.rm = TRUE), 
            quantile(samples, qs[3], na.rm = TRUE))))
     
@@ -330,7 +250,7 @@ map.behaviour <- function(type = c('Records', 'Land use', 'Fire', 'Suppression',
   
   ## choose should be a string containing the contents of a dplyr filter expression
   
-  ## ggcolour and ggshape should be the intended column names of the mapping function
+  ## ggcolour and ggshape should be the intended column names passed to ggplot shape and colour aesthetics
   
   if(type == 'Records') {
     
