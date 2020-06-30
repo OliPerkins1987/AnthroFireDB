@@ -401,6 +401,11 @@ map.behaviour <- function(type = c('Records', 'Land use', 'Fire', 'Suppression',
   
 }
 
+                                                  
+##################################                                        
+### run function
+##################################
+                                                  
 map.behaviour('Fire', ggcolour = 'Intended.fire.size.mean.(ha)', 
               ggshape = 'AFT', 
               choose = "AFT %in% c('Cropping, Swidden', 'Cattle, Extensive', 'Pastoralism, Migratory', 'Forestry, Traditional')")
