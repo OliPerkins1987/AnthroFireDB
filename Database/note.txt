@@ -1,1 +1,1 @@
-
+Files here contain the core database compiled in the project, as well as the database metadata. 
