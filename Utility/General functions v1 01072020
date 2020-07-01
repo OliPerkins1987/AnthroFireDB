@@ -1,0 +1,69 @@
+
+
+##############################################################
+
+### Convert continuous values to binned values in the Database
+
+##############################################################
+
+bin.vals <- function(data, metric = 'Size') {
+  
+  #metric should be either 'Size', 'Count', or 'BApct'
+  
+  catfunc <- function(x) {
+    
+    ### takes a numeric vector
+    
+    if(metric == 'Size') {
+    
+    y <- ifelse(x == 0, '0',
+         ifelse(x <= 1, '0-1', 
+         ifelse(x <= 2, '1-2', 
+         ifelse(x <= 5, '2-5', 
+         ifelse(x <= 10, '5-10', 
+         ifelse(x <= 20 , '10-20', 
+         ifelse(x <= 50, '20-50', 
+         ifelse(x < 100, '50-100',
+         ifelse(x <= 200, '100-200',
+         ifelse(x <= 500, '200-500',
+         ifelse(x <= 1000, '500-1000', 
+         ifelse(x <= 2500, '1000-2500',
+         ifelse(x <= 5000, '2500-5000',
+         ifelse(x <= 10000, '5000-10000',
+         ifelse(x <= 25000, '10000-25000', 
+         ifelse(x >25000, '25000-', 
+    x))))))))))))))))
+    
+    } else if(metric == 'Count') {
+        
+      NA
+      
+    } else if(metric == 'BApct') {
+        
+      y <- ifelse(x == 0, '0', 
+           ifelse(x <= 10, '0-10', 
+           ifelse(x <= 20, '10-20', 
+           ifelse(x <= 30, '20-30', 
+           ifelse(x <= 40 , '30-40', 
+           ifelse(x <= 50, '40-50', 
+           ifelse(x < 60, '50-60',
+           ifelse(x <= 70, '60-70',
+           ifelse(x <= 80, '70-80',
+           ifelse(x <= 90, '80-90', 
+           ifelse(x <= 100, '90-100',
+                                                                                        x)))))))))))
+      
+      }
+    
+    return(y)
+    
+    
+    
+    }
+    
+    return(catfunc(data))
+
+  }
+  
+
+
