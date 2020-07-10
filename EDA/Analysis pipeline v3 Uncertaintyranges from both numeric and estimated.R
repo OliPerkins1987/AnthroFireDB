@@ -59,7 +59,7 @@ policy <- read.xlsx(dbstring, sheet = 6, startRow = 1, colNames = TRUE)
 ###############################################
 
 
-return        <- reported_fire %>% dplyr::group_by(AFT) %>% filter(`Fire.return.period.(years)` != 0) %>%
+Fire.return        <- reported_fire %>% dplyr::group_by(AFT) %>% filter(`Fire.return.period.(years)` != 0) %>%
   summarise('Fire return' = mean(`Fire.return.period.(years)`, na.rm = T))
 
 size          <- reported_fire %>% dplyr::group_by(AFT) %>% filter(`Presence./.Absence` == 'Presence') %>%
