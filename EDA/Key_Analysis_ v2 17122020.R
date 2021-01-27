@@ -1,0 +1,144 @@
+###############################################################################
+
+### The following code is used to produce key reports and maps from DAFI
+
+### Author: Oli Perkins, v2 17/12/2020
+
+###############################################################################
+
+library(tidyverse)
+library(ggplot2)
+library(viridisLite)
+library(maps)
+library(xlsx)
+library(openxlsx)
+
+###############################
+
+source('C:/Users/Oli/Documents/PhD/Model development/Analysis/Utility/General functions v5_3 07122020.R')
+source('C:/Users/Oli/Documents/PhD/Model development/Analysis/Utility/Data visualisation v1 30112020.R')
+
+###############################
+
+
+### Setup
+
+setwd('C:/Users/Oli/Documents/PhD/Model development/Data/DAFI')
+dbstring      <- 'Database v1_9_clean 07122020.xlsx'
+load.db()
+
+table(Simplify.intention()) # distribution of fire intentions
+
+#############################################################################################
+
+### 1a) Data overview by AFT
+
+#############################################################################################
+
+AFT_overview  <- DB_overview(simp = T, AFT.eval = T)
+
+AFT_overview  <- pivot_longer(AFT_overview, cols = colnames(AFT_overview)[-1], names_to = 'AFT', 
+                              values_to = 'value')
+
+AFT_overview  <- AFT_overview %>% split(AFT_overview$AFT) %>% 
+  lapply(function(x) {mutate(x, 'Proportion' = as.numeric(x$value) / sum(as.numeric(x$value), na.rm = T))}) %>%
+  plyr::rbind.fill()
+
+
+#############################################################################################
+
+### 1b) Data overview by fire type
+
+#############################################################################################
+
+
+dat <- data.frame(DB_overview()$Intention %>% filter(!is.na(`Fire intention`)))
+
+### sum intended and actual fire uses
+
+for(i in seq(4, 14, 2)) {dat[, i] <- dat[, i] + dat[, i+1]}
+dat <- dat[, c(1, 17, 2, 3, 4, 6, 8, 10, 12, 14, 16)]
+
+
+#############################################################################################
+
+### 2a) Summary stats by AFT
+
+#############################################################################################
+
+### Fire creation
+
+
+Fire.use          <- plyr::rbind.fill(lapply(colnames(reported_fire)[c(10:19, 22:26)], 
+                        function (x){summarise.behaviour(type = "Fire", 
+                        behaviour = x, grouping = c('AFT', 'Fire intention'), escape.rm = T)}))
+
+Fire.use$Intended <- ifelse(grepl('intended', tolower(Fire.use$Behaviour)), 'Intended', 'Actual')
+
+
+### Suppression
+
+
+Suppression.sum           <- plyr::rbind.fill(lapply(colnames(sup)[c(8, 10, 12)], function(x) {
+                              summarise.behaviour(type = "Suppression", 
+                               behaviour = x, grouping = "AFT")}))
+
+Suppression.sum           <- Suppression.sum[, c(1, 7, 2, 5, 4, 6, 3)]
+Suppression.sum[, c(3:7)] <- apply(Suppression.sum[, 3:7], 2, function(x) {ifelse(is.na(x), 0, x)}) 
+
+
+### Policy
+
+
+policy[, c(9, 13, 18)]    <- apply(policy[, c(9, 13, 18)], 2, as.factor)
+policy.sum                <- plyr::rbind.fill(lapply(c("Incentives", "Fire restricted", "Fire banned"), 
+                              function(x) {summarise.behaviour(type = "Policy", behaviour = x, 
+                                grouping = "AFT")}))
+
+
+
+#####################################################################################################
+
+### 3) Plots
+
+#####################################################################################################
+
+
+plot.behaviour(metrics = colnames(reported_fire)[10:11], agg = T, Cropland = T, bin_width = 0.7, 
+               scale_limits = c(0.00001, 100), log_scale = T)
+
+plot.behaviour(metrics = colnames(reported_fire)[12:19], agg = F, Cropland = T, bin_width = 0.8,
+               Xaxis_label = 'Fire size (ha)', log_scale = T, scale_limits = c(0.0001, 10000))
+
+plot.behaviour(metrics = 'Fire return period (years)', agg = F, Cropland = T, 
+               Xaxis_label = 'Fire return period (years)', log_scale = F, bin_width = 1.5, 
+               scale_limits = c(0, 30))
+
+
+
+#####################################################################################################
+
+### 4) Maps
+
+######################################################################################################
+
+recordinfo$`Data Source` <- Simplify.source()
+est_fire$`Fire use type` <- Simplify.intention()
+est_fire$Presence        <- est_fire$`Presence / Absence` == 'Presence'
+
+map.behaviour('Land use', ggcolour = '`Data Source`', ggshape = '`Data Source`')
+
+map.behaviour('Fire', ggshape = '`Fire use type`', ggcolour = '`Fire use type`', 
+              choose = "`Fire use type` != 'Other' & `Presence / Absence` == 'Presence'")
+
+map.behaviour('Suppression', ggshape = '`Fire control (0-3)`', 
+              ggcolour = "AFT", 
+              choose = "!is.na(`Fire control (0-3)`) & `Fire control (0-3)` != 'ND'")
+
+map.behaviour('Policy', ggcolour = 'AFT', 
+              ggshape = '`Fire banned`', 
+              choose = "!AFT %in% c('ND', 'All', 
+              'Agroforestry, Market-oriented', 'Agroforestry, Subsistence-oriented', 'All', 'ND', 'Mixed cropping-livestock small holder, Market-oriented', 
+              'Mixed cropping-livestock small holder, Subsistence-oriented')")
+
+
