@@ -1,5 +1,5 @@
 
-###########################################################
+############################################################
 
 ### This script contains functions to reduce & resample DAFI data
 ### for reasons of under / oversampling
