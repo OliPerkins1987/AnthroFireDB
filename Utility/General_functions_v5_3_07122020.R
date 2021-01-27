@@ -1,5 +1,3 @@
-test
-
 ###############################################################################
 
 ### Code contains functions to support analysis of DAFI, the global database anthropogenic fire impacts
