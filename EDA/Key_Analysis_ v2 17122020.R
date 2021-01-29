@@ -17,6 +17,7 @@ library(devtools)
 ###############################
 
 source_url('https://raw.githubusercontent.com/OliPerkins1987/AnthroFireDB/master/Utility/General_functions_v5_3_07122020.R')
+source_url('https://raw.githubusercontent.com/OliPerkins1987/AnthroFireDB/master/Utility/Data_visualisation_v2_17122020.R')
 source_url('https://raw.githubusercontent.com/OliPerkins1987/AnthroFireDB/master/Utility/Compress_database_v1_30112020.R')
 
 ###############################
@@ -72,8 +73,8 @@ dat <- dat[, c(1, 17, 2, 3, 4, 6, 8, 10, 12, 14, 16)]
 
 
 Fire.use          <- plyr::rbind.fill(lapply(colnames(reported_fire)[c(10:19, 22:26)], 
-                        function (x){summarise.behaviour(type = "Fire", 
-                        behaviour = x, grouping = c('AFT', 'Fire intention'), escape.rm = T)}))
+                                             function (x){summarise.behaviour(type = "Fire", 
+                                                                              behaviour = x, grouping = c('AFT', 'Fire intention'), escape.rm = T)}))
 
 Fire.use$Intended <- ifelse(grepl('intended', tolower(Fire.use$Behaviour)), 'Intended', 'Actual')
 
@@ -82,8 +83,8 @@ Fire.use$Intended <- ifelse(grepl('intended', tolower(Fire.use$Behaviour)), 'Int
 
 
 Suppression.sum           <- plyr::rbind.fill(lapply(colnames(sup)[c(8, 10, 12)], function(x) {
-                              summarise.behaviour(type = "Suppression", 
-                               behaviour = x, grouping = "AFT")}))
+  summarise.behaviour(type = "Suppression", 
+                      behaviour = x, grouping = "AFT")}))
 
 Suppression.sum           <- Suppression.sum[, c(1, 7, 2, 5, 4, 6, 3)]
 Suppression.sum[, c(3:7)] <- apply(Suppression.sum[, 3:7], 2, function(x) {ifelse(is.na(x), 0, x)}) 
@@ -94,8 +95,8 @@ Suppression.sum[, c(3:7)] <- apply(Suppression.sum[, 3:7], 2, function(x) {ifels
 
 policy[, c(9, 13, 18)]    <- apply(policy[, c(9, 13, 18)], 2, as.factor)
 policy.sum                <- plyr::rbind.fill(lapply(c("Incentives", "Fire restricted", "Fire banned"), 
-                              function(x) {summarise.behaviour(type = "Policy", behaviour = x, 
-                                grouping = "AFT")}))
+                                                     function(x) {summarise.behaviour(type = "Policy", behaviour = x, 
+                                                                                      grouping = "AFT")}))
 
 
 
