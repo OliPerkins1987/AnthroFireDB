@@ -12,21 +12,14 @@ library(ggplot2)
 library(viridisLite)
 library(maps)
 library(readxl)
+library(devtools)
 
 ###############################
 
-source('C:/Users/Oli/Documents/PhD/Model development/Analysis/Utility/General_functions_v5_3_07122020.R')
-source('C:/Users/Oli/Documents/PhD/Model development/Analysis/Utility/Data_visualisation_v2_17122020.R')
+source_url('https://raw.githubusercontent.com/OliPerkins1987/AnthroFireDB/master/Utility/General_functions_v5_3_07122020.R')
+source_url('https://raw.githubusercontent.com/OliPerkins1987/AnthroFireDB/master/Utility/Data_visualisation_v2_17122020.R')
 
 ###############################
-
-
-### Setup
-
-setwd('C:/Users/Oli/Documents/PhD/Model development/Data/DAFI')
-dbstring      <- 'Database v1_9_clean 07122020.xlsx'
-load.db()
-
 
 
 #######################################################################################
