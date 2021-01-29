@@ -12,19 +12,21 @@ library(viridisLite)
 library(maps)
 library(xlsx)
 library(openxlsx)
+library(devtools)
 
 ###############################
 
-source('C:/Users/Oli/Documents/PhD/Model development/Analysis/Utility/General functions v5_3 07122020.R')
-source('C:/Users/Oli/Documents/PhD/Model development/Analysis/Utility/Data visualisation v1 30112020.R')
+source_url('https://raw.githubusercontent.com/OliPerkins1987/AnthroFireDB/master/Utility/General_functions_v5_3_07122020.R')
+source_url('https://raw.githubusercontent.com/OliPerkins1987/AnthroFireDB/master/Utility/Compress_database_v1_30112020.R')
 
 ###############################
 
 
 ### Setup
 
-setwd('C:/Users/Oli/Documents/PhD/Model development/Data/DAFI')
-dbstring      <- 'Database v1_9_clean 07122020.xlsx'
+dbstring      <- 'DAFI.xlsx'
+download.file('https://github.com/OliPerkins1987/AnthroFireDB/blob/master/Database/Database_v1_9_clean_07122020.xlsx?raw=true', 
+              dbstring, mode = "wb", quiet = TRUE)
 load.db()
 
 table(Simplify.intention()) # distribution of fire intentions
