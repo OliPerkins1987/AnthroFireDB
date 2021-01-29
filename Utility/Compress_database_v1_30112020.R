@@ -16,8 +16,8 @@ library(devtools)
 
 ###############################
 
-source_url('https://raw.githubusercontent.com/OliPerkins1987/AnthroFireDB/master/Utility/General_functions_v5_3_07122020.R')
-source_url('https://raw.githubusercontent.com/OliPerkins1987/AnthroFireDB/master/Utility/Data_visualisation_v2_17122020.R')
+#source_url('https://raw.githubusercontent.com/OliPerkins1987/AnthroFireDB/master/Utility/General_functions_v5_3_07122020.R')
+#source_url('https://raw.githubusercontent.com/OliPerkins1987/AnthroFireDB/master/Utility/Data_visualisation_v2_17122020.R')
 
 ###############################
 
