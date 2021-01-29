@@ -295,9 +295,6 @@ plot.behaviour <- function(metrics = 'Actual fire size mean (ha)', agg = F, Crop
     }
 
   
-  
-  print(p)
-  
   return(p)
   
   
@@ -376,8 +373,6 @@ map.behaviour <- function(type = c('Records', 'Land use', 'Fire', 'Suppression',
   g <- ggplot(dat, aes_string(x = 'Longitude', y = 'Latitude', colour = ggcolour, shape = ggshape)) +
     geom_point(size = point.size, position='jitter') + theme_classic() + 
     borders() + scale_colour_viridis_d() + scale_shape_manual(values = c(18, 3, 16, 7, 8, 15, 19, 25))
-  
-  print(g)
   
   return(g)
   
