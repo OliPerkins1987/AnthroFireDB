@@ -26,7 +26,7 @@ source_url('https://raw.githubusercontent.com/OliPerkins1987/AnthroFireDB/master
 ### Setup
 
 dbstring      <- 'DAFI.xlsx'
-download.file('https://github.com/OliPerkins1987/AnthroFireDB/blob/master/Database/Database_v1_9_clean_07122020.xlsx?raw=true', 
+download.file('https://github.com/OliPerkins1987/AnthroFireDB/blob/master/Database/Database_v1_11_AFT_update_03022021?raw=true', 
               dbstring, mode = "wb", quiet = TRUE)
 load.db()
 
