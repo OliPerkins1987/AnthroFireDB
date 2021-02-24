@@ -1,0 +1,251 @@
+"Case.Study.ID","Location","Region.or.district","Study.Date..start.","Study.Date..end.","State","Land tenure","Fire development stage","Primary AFT","Secondary AFT","Tertiary AFT"
+"162a","Bluestem Grazing Region","Kansas","1880","1990","Kansas",NA,"Transition","Pastoralist","Livestock farmer, Extensive",NA
+"163a","Sierra Nevada Foothills","California","2001","2002","California","Mixed","Transition","Livestock farmer, Extensive","Pastoralist","Forestry, Industrial"
+"215a","Karuk and Yurok Tribal Areas","California","2008","2009","California","Mixed","Transition","Forestry, Industrial","Conservationist (Pyro-diversity)","Hunter-gatherer (hunting focused)"
+"217a","Indiana Summit","California","2016","2017","California","Centrally-allocated","Post-industrial","Conservationist","Hunter-gatherer (gathering focused)",NA
+"226a","Colville National Forest","Washington","2015","2015","Washington","Centrally-allocated","Post-industrial","Conservationist (Pyro-diversity)","Forestry (managed)","Hunter-gatherer (gathering focused)"
+"232a",NA,"Alaska","1950","2004","Alaska","Mixed","Industrial","ND",NA,NA
+"232b","Yukon Flats","Alaska","1950","2004","Alaska","Centrally-allocated","Transition","Hunter-gatherer (gathering focused)",NA,NA
+"241a","Grand River Grasslands","Iowa","2014","2014","Iowa","Mixed","Post-industrial","Livestock farmer, Intensive","Recreationalist","Conservationist (Pyro-diversity)"
+"242a","Grand River Grasslands","Iowa","2008","2008","Iowa","Private","Post-industrial","Livestock farmer, Intensive","Recreationalist",NA
+"246a","North Fork","California","2013","2015","California","Centrally-allocated","Post-industrial","Conservationist (Pyro-diversity)","Hunter-gatherer (gathering focused)","Forestry, Industrial"
+"251a","Karuk Tribal Lands","California","1990","2014","California","Centrally-allocated","Post-industrial","Conservationist","Hunter-gatherer (gathering focused)","Forestry, Industrial"
+"258a","Nothern California","California","2007","2015","California","Mixed","Post-industrial","Conservationist (Pyro-diversity)","Urban resident","Forestry (managed)"
+"258b","Southern California","California","2003","2018","California","Mixed","Post-industrial","Conservationist (Pyro-diversity)","Urban resident","Forestry (managed)"
+"258c","Sequoia and Kings Canyon National Parks","California","1960","2017","California","Centrally-allocated","Industrial","Conservationist (Pyro-diversity)","Forestry (managed)",NA
+"258d","Yosemite National Park","California","1960","2017","California","Centrally-allocated","Industrial","Conservationist (Pyro-diversity)","Forestry (managed)",NA
+"258e","Lassen Volcanic National Park","California","1960","2017","California","Centrally-allocated","Industrial","Conservationist (Pyro-diversity)","Forestry (managed)",NA
+"285a","Fairbanks","Alaska","1988","2016","Alaska","Mixed","Industrial","Urban resident","Forestry, Industrial",NA
+"285b",NA,"Alaska","1988","2016","Alaska","Mixed","Industrial","Forestry, Industrial","Urban resident",NA
+"287a","Angeles National Forest","California","1980","2007","California","Centrally-allocated","Industrial","Forestry (managed)",NA,NA
+"287b","Los Padres National Forest","California","1980","2007","California","Centrally-allocated","Industrial","Forestry (managed)",NA,NA
+"287c","San Bernardino National Forest","California","1980","2007","California","Centrally-allocated","Industrial","Forestry (managed)",NA,NA
+"287d","Cleveland National Forest","California","1980","2007","California","Centrally-allocated","Industrial","Forestry (managed)",NA,NA
+"288a","Eastern Cascades","Oregon","1905","1924","Oregon","Centrally-allocated","Industrial","Forestry (managed)",NA,NA
+"288b","Eastern Cascades","Oregon","1925","1975","Oregon","Centrally-allocated","Industrial","Forestry (managed)",NA,NA
+"288c","Eastern Cascades","Oregon","1976","1995","Oregon","Centrally-allocated","Industrial","Forestry (managed)","Conservationist","Recreationalist"
+"288d","Eastern Cascades","Oregon","1995","2010","Oregon","Centrally-allocated","Industrial","Forestry (managed)","Conservationist","Recreationalist"
+"288e","Eastern Cascades","Oregon","1911","1924","Oregon","Private","Industrial","Forestry (managed)",NA,NA
+"288f","Eastern Cascades","Oregon","1925","1997","Oregon","Private","Industrial","Forestry (managed)",NA,NA
+"288g","Eastern Cascades","Oregon","1998","2010","Oregon","Private","Industrial","Forestry (managed)",NA,NA
+"288h","Warm Springs Reservation","Oregon","1910","1924","Oregon","Centrally-allocated","Industrial","Forestry (managed)",NA,NA
+"288i","Warm Springs Reservation","Oregon","1925","1975","Oregon","Centrally-allocated","Industrial","Forestry (managed)",NA,NA
+"288j","Warm Springs Reservation","Oregon","1976","1995","Oregon","Centrally-allocated","Industrial","Forestry (managed)","Conservationist","Recreationalist"
+"288k","Warm Springs Reservation","Oregon","1996","2010","Oregon","Centrally-allocated","Industrial","Forestry (managed)","Conservationist","Recreationalist"
+"297a","Pawnee National Grassland","Colorado","2007","2010","Colorado","Mixed","Industrial","Conservationist (Pyro-diversity)","Livestock farmer, Intensive",NA
+"299a","Whiskey Hill","Idaho","2004","2010","Idaho",NA,"Transition","Livestock farmer, Extensive",NA,NA
+"306a",NA,"CONUS","1999","2012","Kansas","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306aa",NA,"Great Plains Tablelands","1999","2012","New Mexico","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306ab",NA,"Southern Rocky Mountains","1999","2012","Colorado","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306ac",NA,"Wyoming Highlands","1999","2012","Wyoming","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306ad",NA,"Northwestern Great Plains","1999","2012","North Dakota","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306ae",NA,"Sandhills","1999","2012","South Dakota","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306af",NA,"Southeastern Great Plains","1999","2012","Kansas","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306ag",NA,"Western Great Plains","1999","2012","Nebraska","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306ah",NA,"Southern Great Plains","1999","2012","Colorado","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306ai",NA,"Edwards Plateau","1999","2012","Texas","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306aj",NA,"Western Gulf Plains","1999","2012","Texas","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306ak",NA,"Ouachita Hills","1999","2012","Louisiana","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306al",NA,"Eastern Great Plains","1999","2012","Nebraska","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306am",NA,"Prarie Coteau Lands","1999","2012","South Dakota","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306an",NA,"Northern Great Plains","1999","2012","North Dakota","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306ao",NA,"Northern Lake Country","1999","2012","Minnesota","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306ap",NA,"Western Till Plains","1999","2012","Minnesota","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306aq",NA,"Till Plains","1999","2012","Iowa","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306ar",NA,"Ozark Highlands","1999","2012","Missouri","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306as",NA,"Mississippi Alluvial Plains","1999","2012","Missouri","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306at",NA,"Gulf Plains","1999","2012","Tennessee","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306au",NA,"Appalachia Bluegrass Hills","1999","2012","Kentucky","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306av",NA,"Cumberland Highlands","1999","2012","Tennessee","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306aw",NA,"Central Till Plains","1999","2012","Illinois","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306ax",NA,"Central Great Lakes Uplands","1999","2012","Wisconsin","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306ay",NA,"Great Lakes Plains","1999","2012","Michigan","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306az",NA,"Eastern Till Plains","1999","2012","Indiana","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306b",NA,"Northern Cascades","1999","2012","Washington","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306ba",NA,"Appallachia","1999","2012","Kentucky","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306bb",NA,"Southern Piedmont","1999","2012","Georgia","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306bc",NA,"Southeastern Coastal Plains","1999","2012","Florida","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306bd",NA,"Floridian Coastal Plain","1999","2012","Georgia","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306be",NA,"Southern Appalachia","1999","2012","Virginia","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306bf",NA,"Eastern Coastal Plain","1999","2012","North Carolina","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306bg",NA,"Northeastern Piedmont","1999","2012","North Carolina","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306bh",NA,"Chesapeake Bay","1999","2012","North Carolina","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306bi",NA,"Northern Appalachia","1999","2012","Virginia","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306bj",NA,"Allegheny Plateau","1999","2012","Pennsylvania","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306bk",NA,"Finger Lakes","1999","2012","New York","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306bl",NA,"Northeastern Highlands","1999","2012","New York","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306bm",NA,"Connecticut River Basin and Highlands","1999","2012","New Hampshire","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306bn",NA,"The North Woods","1999","2012","Maine","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306bo",NA,"Mississippi Delta","1999","2012","Louisiana","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306bp",NA,"Coastal Gulf Plains","1999","2012","Alabama","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306c",NA,"Oregon Coastal Range","1999","2012","Oregon","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306d",NA,"Northern California Coastal Range","1999","2012","California","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306e",NA,"Southern California Coastal Range","1999","2012","California","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306f",NA,"California Central Valley","1999","2012","California","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306g",NA,"Sierra Nevada Mountain Range","1999","2012","California","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306h",NA,"Cascade Mountain Range","1999","2012","Oregon","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306i",NA,"Grande Coulee Basin of the Columbia Plateau","1999","2012","Washington","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306j",NA,"Blue Mountain Region of the Columbia Plateau","1999","2012","Oregon","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306k",NA,"Northwestern Rocky Mountains","1999","2012","Idaho","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306l",NA,"Western Great Basin","1999","2012","Nevada","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306m",NA,"Death Valley Basin","1999","2012","California","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306n",NA,"Sonoran Desert","1999","2012","Arizona","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306o",NA,"Mogollon Rim","1999","2012","Arizona","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306p",NA,"Utah High Plateaus","1999","2012","Utah","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306q",NA,"Eastern Great Basin","1999","2012","Utah","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306r",NA,"Snake River Plain","1999","2012","Idaho","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306s",NA,"Northern Rocky Mountains","1999","2012","Montana","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306t",NA,"Missouri River Plateau","1999","2012","Montana","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306u",NA,"Middle Rocky Mountains","1999","2012","Montana","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306v",NA,"Wyoming Basin","1999","2012","Wyoming","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306w",NA,"Colorado Plateau","1999","2012","Utah","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306x",NA,"Navajo Plateau","1999","2012","New Mexico","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306y",NA,"Rio Grande Basin","1999","2012","New Mexico","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"306z",NA,"Chihuahuan Desert","1999","2012","Texas","Centrally-allocated","Industrial","Fire suppression agent",NA,NA
+"315a",NA,"Texas","1989","1989","Texas","Private","Industrial","Livestock farmer, Intensive","Livestock farmer, Extensive",NA
+"316a","Elko County","Nevada","2006","2006","Nevada","Centrally-allocated","Post-industrial","Conservationist (Pyro-diversity)","Urban resident","Livestock farmer, Extensive"
+"316b","Lake County","Oregon","2006","2006","Oregon","Centrally-allocated","Post-industrial","Conservationist (Pyro-diversity)","Urban resident","Livestock farmer, Extensive"
+"316c","Millard County","Utah","2006","2006","Utah","Centrally-allocated","Post-industrial","Conservationist (Pyro-diversity)","Urban resident","Livestock farmer, Extensive"
+"320a",NA,"Nebraska","2013","2013","Nebraska","Private","Industrial","Livestock farmer, Intensive","Livestock farmer, Extensive",NA
+"320b",NA,"Oaklahoma","2013","2013","Arkansas","Private","Industrial","Livestock farmer, Intensive","Livestock farmer, Extensive",NA
+"322a",NA,"ND","2003","2003","Kansas","Mixed","Industrial","Conservationist (Pyro-diversity)",NA,NA
+"336c",NA,"California","2011","2011","California","Mixed","Post-industrial","Hunter-gatherer (hunting focused)","Conservationist","Fire suppression agent"
+"337a","Nez Perce Tribal Lands","ND","2006","2006","Idaho","Mixed","Industrial","Hunter-gatherer (hunting focused)","Forestry (managed)","Small-holder (arable, subsistence)"
+"340c",NA,"California","1980","1998",NA,NA,"Industrial","Intensive farmer",NA,NA
+"340d",NA,"ND","1985","1990","South Dakota",NA,"Industrial","Intensive farmer",NA,NA
+"362a",NA,"Georgia","2014","2014","Georgia",NA,"Industrial","Intensive farmer","Livestock farmer, Extensive",NA
+"362b",NA,"Kansas","2014","2014","Kansas","Mixed","Post-industrial","Conservationist (Pyro-diversity)","Livestock farmer, Extensive",NA
+"362c",NA,"Oaklahoma","2014","2014","Oklahoma","Mixed","Post-industrial","Conservationist (Pyro-diversity)","Livestock farmer, Extensive",NA
+"389a",NA,"Western United States","2004","2008","Nevada","Mixed",NA,"Forestry (managed)","Conservationist (Pyro-diversity)","Urban resident"
+"389b","Willdland Urban Interface","Arizona","2004","2008","Arizona","Mixed",NA,"Urban resident","Fire suppression agent",NA
+"389c","Willdland Urban Interface","California","2004","2008","California","Mixed",NA,"Urban resident","Fire suppression agent",NA
+"389d","Willdland Urban Interface","Colorado","2004","2008","Colorado","Mixed",NA,"Urban resident","Fire suppression agent",NA
+"389e","Willdland Urban Interface","Idaho","2004","2008","Idaho","Mixed",NA,"Urban resident","Fire suppression agent",NA
+"389f","Willdland Urban Interface","Montana","2004","2008","Montana","Mixed",NA,"Urban resident","Fire suppression agent",NA
+"389g","Willdland Urban Interface","New Mexico","2004","2008","New Mexico","Mixed",NA,"Urban resident","Fire suppression agent",NA
+"389h","Willdland Urban Interface","Nevada","2004","2008","Nevada","Mixed",NA,"Urban resident","Fire suppression agent",NA
+"389i","Willdland Urban Interface","Oregon","2004","2008","Oregon","Mixed",NA,"Urban resident","Fire suppression agent",NA
+"389j","Willdland Urban Interface","Utah","2004","2008","Idaho","Mixed",NA,"Urban resident","Fire suppression agent",NA
+"389k","Willdland Urban Interface","Washington","2004","2008","Washington","Mixed",NA,"Urban resident","Fire suppression agent",NA
+"389l","Willdland Urban Interface","Wyoming","2004","2008","Wyoming","Mixed",NA,"Urban resident","Fire suppression agent",NA
+"416a","Angeles National Forest","California","2004","2011","California","Centrally-allocated","Industrial","Conservationist","Forestry (managed)",NA
+"416b","Cleveland National Forest","California","2004","2011","California","Centrally-allocated","Industrial","Conservationist","Forestry (managed)",NA
+"416c","Los Padres National Forest","California","2004","2011",NA,"Centrally-allocated","Industrial","Conservationist","Forestry (managed)",NA
+"416d","San Bernardino National Forest","California","2004","2011","California","Centrally-allocated","Industrial","Conservationist","Forestry (managed)",NA
+"429a",NA,"Sierra Nevada Bioregion","2013","2013","California","Centrally-allocated","Industrial","Conservationist (Pyro-diversity)","Forestry, Industrial","Urban resident"
+"430a","Private Forestry Land","Alabama","2006","2006","Alabama","Private","Industrial","Forestry (managed)",NA,NA
+"430b","Private Forestry Land","Florida","2006","2006","Florida","Private","Industrial","Forestry, Industrial",NA,NA
+"430c","Private Forestry Land","Georgia","2006","2006","Georgia","Private","Industrial","Forestry, Industrial",NA,NA
+"430d","Private Forestry Land","South Carolina","2006","2006","South Carolina","Private","Industrial","Forestry, Industrial",NA,NA
+"430e","Private Forestry Land","Mississippi","2006","2006","Mississippi","Private","Industrial","Forestry, Industrial",NA,NA
+"433a","US Forestry Service Lands","ND","1990","2011","Missouri","Centrally-allocated","Industrial","Forestry, Industrial","Conservationist",NA
+"435a",NA,"ND","1985","2005","Colorado","Mixed","Industrial","ND",NA,NA
+"440a","Chequamegon-Nicolet National Forest","Wisconsin","2000","2008","Wisconsin","Mixed","Industrial","Forestry, Industrial","Urban resident","Conservationist"
+"441a","Laurentian Mixed Forest","Wisconsin","1985","2000","Wisconsin","Mixed","Industrial","Forestry (managed)","Intensive farmer","Livestock farmer, Intensive"
+"442a","Great Lakes","Minnesota","1985","1995","Minnesota",NA,"Industrial","Forestry, Industrial",NA,NA
+"442b","Great Lakes","Wisconsin","1985","1995","Wisconsin",NA,"Industrial","Forestry, Industrial",NA,NA
+"442c","Great Lakes","Michigan","1985","1995","Michigan",NA,"Industrial","Forestry, Industrial",NA,NA
+"448a",NA,"Federal lands","2012","2012","Nebraska","Centrally-allocated","Industrial","ND",NA,NA
+"448b",NA,"Texas","1998","2012","Texas","Private","Industrial","Intensive farmer","Livestock farmer, Intensive","Forestry, Industrial"
+"448c",NA,"Southeastern","2002","2012","Georgia",NA,"Industrial","Intensive farmer","Livestock farmer, Intensive","Forestry, Industrial"
+"448d",NA,"Southern Great Plains","1995","2019","Oklahoma",NA,"Industrial","Intensive farmer","Livestock farmer, Intensive","Forestry, Industrial"
+"451a",NA,"ND","2004","2012","Colorado","Private","Industrial","Livestock farmer, Intensive",NA,NA
+"454a","Northern Basin and Range","ND","1992","2015","Oregon",NA,NA,"ND",NA,NA
+"454aa","Lake Manitoba and Lake Agassiz Plain","ND","1992","2015","Minnesota",NA,NA,"ND",NA,NA
+"454ab","Cross Timbers","ND","1992","2015","Texas",NA,NA,"ND",NA,NA
+"454ac","Sierra Nevada","ND","1992","2015","California",NA,NA,"ND",NA,NA
+"454ad","California Coastal Sage, Chaparral and Oak Woodlands","ND","1992","2015","California",NA,NA,"ND",NA,NA
+"454ae","Northern Minnesota Wetlands","ND","1992","2015","Minnesota",NA,NA,"ND",NA,NA
+"454af","Northwestern Glaciated Plains","ND","1992","2015","Montana",NA,NA,"ND",NA,NA
+"454ag","Central Great Plains","ND","1992","2015","Kansas",NA,NA,"ND",NA,NA
+"454ah","Southern Texas Plains / Interior Plains and hills","ND","1992","2015","Texas",NA,NA,"ND",NA,NA
+"454ai","Columbia Mountains / Northern Rockies","ND","1992","2015","Washington",NA,NA,"ND",NA,NA
+"454aj","Eastern Cascades","ND","1992","2015","Oregon",NA,NA,"ND",NA,NA
+"454ak","Colorado Plateaus","ND","1992","2015","Utah",NA,NA,"ND",NA,NA
+"454al","Arizona / New Mexico Plateau","ND","1992","2015","Arizona",NA,NA,"ND",NA,NA
+"454am","Central Appalachians","ND","1992","2015","Tennessee",NA,NA,"ND",NA,NA
+"454an","Arkansas Valley","ND","1992","2015","Arkansas",NA,NA,"ND",NA,NA
+"454ao","Southern Coastal Plain","ND","1992","2015","Florida",NA,NA,"ND",NA,NA
+"454ap","Cascades","ND","1992","2015","Oregon",NA,NA,"ND",NA,NA
+"454aq","Ouchita Mountains","ND","1992","2015","Arkansas",NA,NA,"ND",NA,NA
+"454ar","Central Irregular Plains","ND","1992","2015","Oklahoma",NA,NA,"ND",NA,NA
+"454as","Sonoran Desert","ND","1992","2015","Arizona",NA,NA,"ND",NA,NA
+"454at","Chihuahuan Deserts","ND","1992","2015","Texas",NA,NA,"ND",NA,NA
+"454au","Boston Mountains","ND","1992","2015","Arkansas",NA,NA,"ND",NA,NA
+"454av","Central California Valley","ND","1992","2015","California",NA,NA,"ND",NA,NA
+"454aw","Aspen Parkland & Northern Glaciated plains","ND","1992","2015","North Dakota",NA,NA,"ND",NA,NA
+"454ax","Ozark Highlands","ND","1992","2015","Arkansas",NA,NA,"ND",NA,NA
+"454ay","Western Corn Belt Plains","ND","1992","2015","Iowa",NA,NA,"ND",NA,NA
+"454az","Southwestern Appalachians","ND","1992","2015","Alabama",NA,NA,"ND",NA,NA
+"454b","Snake River Plain","ND","1992","2015","Idaho",NA,NA,"ND",NA,NA
+"454ba","East Central Texas Plains","ND","1992","2015","Texas",NA,NA,"ND",NA,NA
+"454bb","Mississippi Alluvial Plain","ND","1992","2015","Louisiana",NA,NA,"ND",NA,NA
+"454bc","Middle Atlantic Coastal Plain","ND","1992","2015","North Carolina",NA,NA,"ND",NA,NA
+"454bd","Interior River Valleys and Hills","ND","1992","2015","Illinois",NA,NA,"ND",NA,NA
+"454be","Blue Ridge","ND","1992","2015","Pennsylvania",NA,NA,"ND",NA,NA
+"454bf","Eastern Corn Belt Plains","ND","1992","2015","Ohio",NA,NA,"ND",NA,NA
+"454bg","Northern Lakes and Forests","ND","1992","2015","Wisconsin",NA,NA,"ND",NA,NA
+"454bh","South Central Plains","ND","1992","2015","Texas",NA,NA,"ND",NA,NA
+"454bi","Ridge and Valley","ND","1992","2015","Pennsylvania",NA,NA,"ND",NA,NA
+"454bj","Central Corn Belt Plains","ND","1992","2015","Illinois",NA,NA,"ND",NA,NA
+"454bk","Mississippi Valley Loess Plains","ND","1992","2015","Mississippi",NA,NA,"ND",NA,NA
+"454bl","Coast Range","ND","1992","2015","California",NA,NA,"ND",NA,NA
+"454bm","Texas Blackland Praries","ND","1992","2015","Texas",NA,NA,"ND",NA,NA
+"454bn","Western Allegheny Plateau","ND","1992","2015","Pennsylvania",NA,NA,"ND",NA,NA
+"454bo","Southeastern Wisconsin Till Plains","ND","1992","2015","Wisconsin",NA,NA,"ND",NA,NA
+"454bp","North Central Appalachians","ND","1992","2015","Pennsylvania",NA,NA,"ND",NA,NA
+"454bq","North Central Hardwood Forests","ND","1992","2015","Michigan",NA,NA,"ND",NA,NA
+"454br","Interior Plateau","ND","1992","2015","Kentucky",NA,NA,"ND",NA,NA
+"454bs","Southeastern Plains","ND","1992","2015","Georgia",NA,NA,"ND",NA,NA
+"454bt","Southern Michigan / Northern Indiana Drift","ND","1992","2015","Michigan",NA,NA,"ND",NA,NA
+"454bu","huron / Erie Lake Plains","ND","1992","2015","Ohio",NA,NA,"ND",NA,NA
+"454bv","Atlantic Coastal Pine Barrens","ND","1992","2015","New Jersey",NA,NA,"ND",NA,NA
+"454bw","Willamette Valley","ND","1992","2015","Oregon",NA,NA,"ND",NA,NA
+"454bx","Driftless Area","ND","1992","2015","Wisconsin",NA,NA,"ND",NA,NA
+"454by","Piedmont & Liguria","ND","1992","2015","Georgia",NA,NA,"ND",NA,NA
+"454bz","Acadian Plains and Hills","ND","1992","2015","Maine",NA,NA,"ND",NA,NA
+"454c","Nebraska Sand Hills","ND","1992","2015","Nebraska",NA,NA,"ND",NA,NA
+"454ca","Northern Appalachian and Atlantic Maritime Highlands","ND","1992","2015","Maine",NA,NA,"ND",NA,NA
+"454cb","Northern Piedmont","ND","1992","2015","Maryland",NA,NA,"ND",NA,NA
+"454cd","Strait of Georgia / Puget Lowland","ND","1992","2015","Washington",NA,NA,"ND",NA,NA
+"454ce","Erie Drift Plain","ND","1992","2015","Pennsylvania",NA,NA,"ND",NA,NA
+"454cf","Northern Allegheny Plateau","ND","1992","2015","New York",NA,NA,"ND",NA,NA
+"454cg","Northeastern Coastal Zone","ND","1992","2015","Connecticut",NA,NA,"ND",NA,NA
+"454d","Canadian Rockies","ND","1992","2015","Montana",NA,NA,"ND",NA,NA
+"454e","Idaho Batholith","ND","1992","2015","Idaho",NA,NA,"ND",NA,NA
+"454f","Central Basin and Range","ND","1992","2015","Nevada",NA,NA,"ND",NA,NA
+"454g","Columbia Plateau","ND","1992","2015","Washington",NA,NA,"ND",NA,NA
+"454h","Southwestern Tablelands","ND","1992","2015","New Mexico",NA,NA,"ND",NA,NA
+"454i","Chihuahuan Desert","ND","1992","2015","Texas",NA,NA,"ND",NA,NA
+"454j","North Cascades","ND","1992","2015","Washington",NA,NA,"ND",NA,NA
+"454k","Southern Florida Coastal Plain","ND","1992","2015","Florida",NA,NA,"ND",NA,NA
+"454l","Madrean Archipelago","ND","1992","2015","New Mexico",NA,NA,"ND",NA,NA
+"454m","Mojave Basin and Range","ND","1992","2015","California",NA,NA,"ND",NA,NA
+"454n","Flint Hills","ND","1992","2015","Kansas",NA,NA,"ND",NA,NA
+"454o","Edwards Plateau","ND","1992","2015","Texas",NA,NA,"ND",NA,NA
+"454p","Blue Mountains","ND","1992","2015","Oregon",NA,NA,"ND",NA,NA
+"454q","Southern and Baja California Pine-Oak Mountains","ND","1992","2015","California",NA,NA,"ND",NA,NA
+"454r","High Plains","ND","1992","2015","Colorado",NA,NA,"ND",NA,NA
+"454s","Northwestern Great Plains","ND","1992","2015","Montana",NA,NA,"ND",NA,NA
+"454t","Middle Rockies","ND","1992","2015","South Dakota",NA,NA,"ND",NA,NA
+"454u","Arizona / New Mexico Mountains","ND","1992","2015","Arizona",NA,NA,"ND",NA,NA
+"454v","Klamath Mountains","ND","1992","2015","California",NA,NA,"ND",NA,NA
+"454w","Western Gulf Coastal Plain","ND","1992","2015","Texas",NA,NA,"ND",NA,NA
+"454x","Wyoming Basin","ND","1992","2015","Wyoming",NA,NA,"ND",NA,NA
+"454y","Wasatch and Uinta Mountains","ND","1992","2015","Utah",NA,NA,"ND",NA,NA
+"454z","Southern Rockies","ND","1992","2015","Colorado",NA,NA,"ND",NA,NA
+"455a",NA,"North Dakota","2016","2016","Kansas","Private","Industrial","Intensive farmer","Livestock farmer, Intensive","Conservationist"
+"456a","Edwards Plateau","Texas","2004","2004","Texas","Private","Industrial","Livestock farmer, Intensive",NA,NA
+"469a","Niobara Valley","Nebraska","2013","2013","Nebraska","Private","Post-industrial","Conservationist (Pyro-diversity)",NA,NA
+"469b","Black Lake","New Mexico","2013","2013","New Mexico","Centrally-allocated","Industrial","Forestry, Industrial","Conservationist",NA
+"469c","Arcata","California","2013","2013","California","Mixed","Industrial","ND",NA,NA
+"490a","Native American Tribal Lands","Pacific Northwest","2004","2004","Washington","Traditional","Transition","Forestry, Industrial","Hunter-gatherer (hunting focused)","Forestry, Small-scale"
+"491a","Koyukuk National Wildlife Refuge","Alaska","2010","2010","Alaska","Centrally-allocated","Post-industrial","Hunter-gatherer (hunting focused)","Forestry (managed)",NA
+"493a",NA,"Idaho","2011","2016","Idaho","Mixed","Industrial","Livestock farmer, Intensive","Forestry, Industrial",NA
+"501a",NA,"Arkansas","2002","2002","Arkansas","Private","Industrial","Intensive farmer",NA,NA
+"501b","Everglades agricultural area","Florida","2007","2007","Florida","Private","Industrial","Intensive farmer",NA,NA
+"501c",NA,"Louisiana","2002","2002","Missouri","Private","Industrial","Intensive farmer",NA,NA
+"501d",NA,"Washington State","2004","2007","Washington","Private","Industrial","Intensive farmer",NA,NA
+"503a",NA,"Florida","2018","2018","Florida","Private","Industrial","Intensive farmer","Forestry (managed)","Cattle, Intensive"
+"503b",NA,"Georgia","2018","2018","Georgia","Private","Industrial","Intensive farmer","Forestry (managed)",NA
+"504a",NA,"Arkansas","2003","2006","Arkansas","Private","Industrial","Intensive farmer",NA,NA

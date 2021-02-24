@@ -1,0 +1,190 @@
+"State","Fire intention","AFT","Presence / Absence","Count","Number of fires, land cover (# km2-1 year-1)","Number of total, total (# km2-1 year-1)","Intended fire size min (ha)","Actual fire size min (ha)","Intended fire size max (ha)","Actual fire size max (ha)","Intended fire size mean (ha)","Actual fire size mean (ha)","Intended fire size median (ha)","Actual fire size median (ha)","Intended burned area % (land cover)","Actual burned area % (land cover)","Intended Burned area % (total)","Actual Burned area % (total)","Fire return period (years)"
+"Alabama","ND","ND","Presence",1,NA,NA,NA,NA,NA,1880,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Alabama","Pyrome management","Fire suppression agent","Presence",1,NA,NA,NA,NA,NA,NA,NA,150,NA,NA,NA,NA,NA,NA,NA
+"Alabama","Pyrome management","Forestry (managed)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Alaska","Harvesting of NTFP","Hunter-gatherer (hunting focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Alaska","Hunting","Hunter-gatherer (gathering focused)","Absence",2,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,NA
+"Alaska","Hunting","Hunter-gatherer (gathering focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Alaska","Hunting","Hunter-gatherer (hunting focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Alaska","ND","ND","Presence",2,NA,0.000352,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,7.5,NA
+"Alaska","ND","Urban resident","Presence",2,NA,0.042,NA,NA,NA,NA,NA,0.0372093023255814,NA,NA,NA,NA,NA,0.16,NA
+"Alaska","Pyrome management","Forestry (managed)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Alaska","Pyrome management","Hunter-gatherer (gathering focused)","Absence",2,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,NA
+"Alaska","Pyrome management","Hunter-gatherer (gathering focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Alaska","Pyrome management","ND","Absence",2,0,0,0,0,0,0,0,0,0,0,0,0,0,NA,NA
+"Arizona","ND","ND","Presence",3,NA,NA,NA,0.5,NA,87100.3333333333,NA,NA,NA,0.5,NA,NA,NA,NA,NA
+"Arizona","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,412.5,NA,NA,NA,NA,NA,NA,NA
+"Arkansas","Crop residue burning","Intensive farmer","Presence",9,NA,0.084875,NA,NA,NA,NA,15,NA,NA,NA,NA,8.85318928204348,NA,1.26282412751886,NA
+"Arkansas","ND","ND","Presence",4,NA,NA,NA,NA,NA,2614.5,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Arkansas","Rangeland management","Livestock farmer, Extensive","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"California","Accidental","Urban resident","Presence",1,NA,NA,NA,NA,NA,62500,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"California","Conservation","Conservationist","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"California","Conservation","Conservationist","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"California","Conservation","Conservationist (Pyro-diversity)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"California","Conservation","Hunter-gatherer (gathering focused)","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"California","Conservation","Hunter-gatherer (gathering focused)","Presence",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"California","Cultural & Spiritual","Hunter-gatherer (gathering focused)","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"California","Cultural & Spiritual","Hunter-gatherer (gathering focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"California","Domestic","Recreationalist","Presence",1,NA,NA,NA,NA,NA,62500,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"California","Harvesting of NTFP","Hunter-gatherer (gathering focused)","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"California","Harvesting of NTFP","Hunter-gatherer (gathering focused)","Presence",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"California","Harvesting of NTFP","Hunter-gatherer (hunting focused)","Presence",2,NA,NA,NA,NA,3.5,NA,NA,NA,NA,NA,NA,2.5,NA,NA,3
+"California","ND","Forestry (managed)","Presence",4,0.0197118415333647,0.0197118415333647,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,27.75
+"California","ND","ND","Presence",9,NA,NA,NA,0.5,NA,83563,NA,NA,NA,0.5,NA,NA,NA,NA,NA
+"California","ND","Recreationalist","Presence",1,NA,NA,NA,NA,NA,62500,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"California","Pyrome management","Conservationist","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"California","Pyrome management","Conservationist","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"California","Pyrome management","Conservationist (Pyro-diversity)","Presence",7,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2.5,NA,2.5,0.181034482758621,NA
+"California","Pyrome management","Fire suppression agent","Presence",6,NA,NA,NA,NA,NA,NA,NA,19,NA,NA,NA,NA,NA,NA,NA
+"California","Pyrome management","Forestry (managed)","Presence",12,NA,NA,0.5,0.5,7500,7500,NA,NA,NA,NA,2.5,NA,2.5,0.0433333333333333,NA
+"California","Pyrome management","Hunter-gatherer (gathering focused)","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"California","Pyrome management","Hunter-gatherer (gathering focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"California","Pyrome management","Hunter-gatherer (hunting focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"California","Rangeland management","Livestock farmer, Extensive","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"California","Rangeland management","Pastoralist","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Colorado","Conservation","Conservationist (Pyro-diversity)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Colorado","Conservation","Livestock farmer, Intensive","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"Colorado","Conservation","Livestock farmer, Intensive","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,0.00674530540302352,NA
+"Colorado","ND","ND","Presence",2,NA,NA,NA,0.5,NA,50380,NA,NA,NA,0.5,NA,NA,NA,NA,NA
+"Colorado","Pasture renewal","Livestock farmer, Intensive","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"Colorado","Pyrome management","Fire suppression agent","Presence",3,NA,NA,NA,NA,NA,NA,NA,153.333333333333,NA,NA,NA,NA,NA,NA,NA
+"Connecticut","ND","ND","Presence",1,NA,NA,NA,NA,NA,146,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Florida","Crop residue burning","Intensive farmer","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,85.2631578947368,NA
+"Florida","ND","Forestry (managed)","Presence",1,NA,NA,1,NA,20000,NA,212.4,NA,NA,NA,NA,NA,NA,NA,NA
+"Florida","ND","Intensive farmer","Presence",1,NA,NA,1,NA,40000,NA,NA,35,NA,NA,NA,NA,NA,NA,NA
+"Florida","ND","Livestock farmer, Intensive","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Florida","ND","ND","Presence",2,NA,NA,NA,NA,NA,94534.5,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Florida","Pyrome management","Fire suppression agent","Presence",1,NA,NA,NA,NA,NA,NA,NA,35,NA,NA,NA,NA,NA,NA,NA
+"Georgia","Crop residue burning","Intensive farmer","Presence",1,NA,0.0755,NA,0.404686,NA,NA,NA,NA,NA,7.5,NA,NA,NA,NA,NA
+"Georgia","ND","Intensive farmer","Presence",1,NA,NA,1,NA,2206,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Georgia","ND","ND","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"Georgia","ND","ND","Presence",3,NA,NA,NA,NA,NA,2068.5,NA,303,NA,NA,NA,NA,NA,NA,NA
+"Georgia","Pasture renewal","Livestock farmer, Extensive","Presence",1,NA,0.006,NA,0.404686,NA,NA,NA,NA,NA,7.5,NA,NA,NA,NA,NA
+"Georgia","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,35,NA,NA,NA,NA,NA,NA,NA
+"Idaho","Crop residue burning","Forestry (managed)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Idaho","Cultural & Spiritual","Hunter-gatherer (hunting focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Idaho","Forest management","Forestry (managed)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Idaho","Harvesting of NTFP","Hunter-gatherer (hunting focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Idaho","Hunting","Hunter-gatherer (hunting focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Idaho","ND","ND","Presence",2,NA,NA,NA,NA,NA,100362.5,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Idaho","Pest management","Hunter-gatherer (hunting focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Idaho","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,192.5,NA,NA,NA,NA,NA,NA,NA
+"Idaho","Pyrome management","Hunter-gatherer (hunting focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Idaho","Rangeland management","Livestock farmer, Extensive","Presence",1,NA,NA,NA,NA,NA,NA,131,98,NA,NA,NA,NA,NA,NA,3
+"Illinois","ND","ND","Presence",2,NA,NA,NA,NA,NA,420,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Illinois","Pyrome management","Fire suppression agent","Presence",1,NA,NA,NA,NA,NA,NA,NA,35,NA,NA,NA,NA,NA,NA,NA
+"Indiana","Pyrome management","Fire suppression agent","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"Iowa","Conservation","Conservationist (Pyro-diversity)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Iowa","Conservation","Livestock farmer, Intensive","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"Iowa","Conservation","Recreationalist","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"Iowa","ND","ND","Presence",1,NA,NA,NA,NA,NA,1619,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Iowa","Pasture renewal","Livestock farmer, Intensive","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"Iowa","Pyrome management","Fire suppression agent","Presence",1,NA,NA,NA,NA,NA,NA,NA,35,NA,NA,NA,NA,NA,NA,NA
+"Iowa","Rangeland management","Livestock farmer, Intensive","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Iowa","Rangeland management","Recreationalist","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Kansas","Conservation","Conservationist (Pyro-diversity)","Presence",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Kansas","ND","ND","Presence",3,NA,NA,NA,NA,NA,11653,NA,NA,NA,NA,NA,NA,NA,5.35259236263967,NA
+"Kansas","Pasture renewal","Livestock farmer, Extensive","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Kansas","Pasture renewal","Pastoralist","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Kansas","Pyrome management","Fire suppression agent","Presence",3,NA,NA,0.5,0.5,9625,9625,NA,131.976666666667,3.5,3.5,NA,NA,NA,0.000872416103301797,11.5
+"Kansas","Rangeland management","Livestock farmer, Extensive","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Kansas","Rangeland management","Livestock farmer, Intensive","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,2.5,2.5,NA,NA,NA
+"Kentucky","ND","ND","Presence",1,NA,NA,NA,NA,NA,1027,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Kentucky","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,250,NA,NA,NA,NA,NA,NA,NA
+"Louisiana","ND","ND","Presence",1,NA,NA,NA,NA,NA,731,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Louisiana","Pyrome management","Fire suppression agent","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"Louisiana","Pyrome management","Fire suppression agent","Presence",1,NA,NA,NA,NA,NA,NA,NA,75,NA,NA,NA,NA,NA,NA,NA
+"Maine","ND","ND","Presence",2,NA,NA,NA,NA,NA,377,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Maine","Pyrome management","Fire suppression agent","Presence",1,NA,NA,NA,NA,NA,NA,NA,15,NA,NA,NA,NA,NA,NA,NA
+"Maryland","ND","ND","Presence",1,NA,NA,NA,NA,NA,405,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Michigan","Arson","ND","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Michigan","Domestic","ND","Presence",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Michigan","Hunting","ND","Presence",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Michigan","Land clearance","ND","Presence",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Michigan","ND","ND","Presence",5,NA,0.00308969071428571,NA,0.5,NA,1778.5,NA,NA,NA,0.5,NA,NA,NA,NA,NA
+"Michigan","Pyrome management","Fire suppression agent","Presence",1,NA,NA,NA,NA,NA,NA,NA,15,NA,NA,NA,NA,NA,NA,NA
+"Minnesota","Arson","ND","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Minnesota","Domestic","ND","Presence",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Minnesota","Hunting","ND","Presence",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Minnesota","Land clearance","ND","Presence",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Minnesota","ND","ND","Presence",5,NA,0.00308969071428571,NA,0.5,NA,8954.5,NA,NA,NA,0.5,NA,NA,NA,NA,NA
+"Minnesota","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,35,NA,NA,NA,NA,NA,NA,NA
+"Mississippi","ND","ND","Presence",1,NA,NA,NA,NA,NA,1680,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Missouri","Crop residue burning","Intensive farmer","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,14.7900826446281,NA,1.45111972755016,NA
+"Missouri","ND","ND","Presence",1,NA,0.0124791375291375,NA,0.5,NA,NA,NA,NA,NA,0.5,NA,NA,NA,NA,NA
+"Missouri","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,25,NA,NA,NA,NA,NA,NA,NA
+"Montana","ND","ND","Presence",3,NA,NA,NA,NA,NA,47736.6666666667,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Montana","Pyrome management","Fire suppression agent","Presence",3,NA,NA,NA,NA,NA,NA,NA,48.3333333333333,NA,NA,NA,NA,NA,NA,NA
+"Nebraska","Conservation","Conservationist (Pyro-diversity)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Nebraska","ND","ND","Presence",3,NA,NA,NA,NA,NA,30149,NA,48.5985805365091,NA,NA,NA,NA,NA,NA,NA
+"Nebraska","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,175.25,NA,NA,NA,NA,NA,NA,NA
+"Nebraska","Rangeland management","Livestock farmer, Intensive","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Nevada","Conservation","Conservationist (Pyro-diversity)","Presence",4,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Nevada","ND","ND","Presence",2,NA,NA,NA,NA,NA,144548,NA,NA,NA,NA,NA,NA,NA,7.5,NA
+"Nevada","Pest management","Conservationist (Pyro-diversity)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Nevada","Pyrome management","Conservationist (Pyro-diversity)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Nevada","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,350,NA,NA,NA,NA,NA,NA,NA
+"Nevada","Pyrome management","Forestry (managed)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Nevada","Pyrome management","Hunter-gatherer (hunting focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Nevada","Pyrome management","Urban resident","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"New Hampshire","Pyrome management","Fire suppression agent","Presence",1,NA,NA,NA,NA,NA,NA,NA,15,NA,NA,NA,NA,NA,NA,NA
+"New Jersey","ND","ND","Presence",1,NA,NA,NA,NA,NA,7780,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"New Mexico","ND","ND","Presence",2,NA,NA,NA,NA,NA,131654.5,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"New Mexico","Pyrome management","Fire suppression agent","Presence",3,NA,NA,NA,NA,NA,NA,NA,100,NA,NA,NA,NA,NA,NA,NA
+"New York","ND","ND","Presence",1,NA,NA,NA,NA,NA,61,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"New York","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,15,NA,NA,NA,NA,NA,NA,NA
+"North Carolina","ND","ND","Presence",1,NA,NA,NA,NA,NA,18330,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"North Carolina","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,45,NA,NA,NA,NA,NA,NA,NA
+"North Dakota","ND","ND","Presence",1,NA,NA,NA,NA,NA,2967,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"North Dakota","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,55,NA,NA,NA,NA,NA,NA,NA
+"Ohio","ND","ND","Presence",2,NA,NA,NA,NA,NA,244,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Oklahoma","Conservation","Conservationist (Pyro-diversity)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Oklahoma","ND","ND","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"Oklahoma","ND","ND","Presence",3,NA,NA,NA,NA,NA,9222,NA,167.566490975135,NA,NA,NA,NA,NA,4.08936884942728,NA
+"Oklahoma","Rangeland management","Livestock farmer, Extensive","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Oregon","Conservation","Conservationist (Pyro-diversity)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Oregon","Crop residue burning","Forestry (managed)","Presence",11,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Oregon","ND","ND","Presence",5,NA,NA,NA,0.5,NA,69333.8,NA,NA,NA,0.5,NA,NA,NA,NA,NA
+"Oregon","Pyrome management","Fire suppression agent","Presence",3,NA,NA,NA,NA,NA,NA,NA,28.3333333333333,NA,NA,NA,NA,NA,NA,NA
+"Oregon","Pyrome management","Forestry (managed)","Presence",5,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Pennsylvania","ND","ND","Presence",5,NA,NA,NA,NA,NA,3055,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Pennsylvania","Pyrome management","Fire suppression agent","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"South Dakota","Crop residue burning","Intensive farmer","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"South Dakota","ND","ND","Presence",1,NA,NA,NA,NA,NA,83817,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"South Dakota","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,55,NA,NA,NA,NA,NA,NA,NA
+"Tennessee","ND","ND","Presence",1,NA,NA,NA,NA,NA,4047,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Tennessee","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,350,NA,NA,NA,NA,NA,NA,NA
+"Texas","ND","ND","Presence",11,NA,NA,NA,0.5,NA,34107.6,NA,75,NA,0.5,NA,NA,NA,NA,NA
+"Texas","Pasture renewal","Livestock farmer, Extensive","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Texas","Pasture renewal","Livestock farmer, Intensive","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Texas","Pyrome management","Fire suppression agent","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"Texas","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,350,NA,NA,NA,NA,NA,NA,NA
+"Texas","Rangeland management","Livestock farmer, Extensive","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Texas","Rangeland management","Livestock farmer, Intensive","Presence",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,15,NA,NA,11.5
+"Utah","Conservation","Conservationist (Pyro-diversity)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Utah","ND","ND","Presence",2,NA,NA,NA,0.5,NA,27480,NA,NA,NA,0.5,NA,NA,NA,NA,NA
+"Utah","Pyrome management","Fire suppression agent","Presence",3,NA,NA,NA,NA,NA,NA,NA,86.6666666666667,NA,NA,NA,NA,NA,NA,NA
+"Virginia","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,82.5,NA,NA,NA,NA,NA,NA,NA
+"Washington","Conservation","Hunter-gatherer (hunting focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Washington","Crop residue burning","Intensive farmer","Presence",1,NA,NA,NA,NA,NA,NA,35,NA,35,NA,NA,3.77523306359014,NA,0.403856038349375,NA
+"Washington","Harvesting of NTFP","Hunter-gatherer (gathering focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Washington","Harvesting of NTFP","Hunter-gatherer (hunting focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Washington","ND","ND","Presence",4,NA,NA,NA,0.5,NA,64566.75,NA,NA,NA,0.5,NA,NA,NA,NA,NA
+"Washington","Pest management","Hunter-gatherer (hunting focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Washington","Pyrome management","Conservationist (Pyro-diversity)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Washington","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,15,NA,NA,NA,NA,NA,NA,NA
+"Washington","Pyrome management","Forestry (managed)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Washington","Pyrome management","Hunter-gatherer (hunting focused)","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Wisconsin","Arson","ND","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Wisconsin","Conservation","Forestry (managed)","Absence",1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,NA
+"Wisconsin","Crop residue burning","Intensive farmer","Presence",2,NA,0.0019,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Wisconsin","Domestic","ND","Presence",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Wisconsin","Hunting","ND","Presence",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Wisconsin","Land clearance","ND","Presence",2,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Wisconsin","ND","Intensive farmer","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Wisconsin","ND","Livestock farmer, Intensive","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Wisconsin","ND","ND","Presence",10,0.00601107142857143,0.00566816076847291,NA,6.83466666666667,NA,9748.75,NA,185.231133333333,NA,0.5,NA,NA,NA,0.415166666666667,NA
+"Wisconsin","ND","Urban resident","Presence",1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Wisconsin","Pyrome management","Fire suppression agent","Presence",1,NA,NA,NA,NA,NA,NA,NA,15,NA,NA,NA,NA,NA,NA,NA
+"Wyoming","ND","ND","Presence",1,NA,NA,NA,NA,NA,55470,NA,NA,NA,NA,NA,NA,NA,NA,NA
+"Wyoming","Pyrome management","Fire suppression agent","Presence",2,NA,NA,NA,NA,NA,NA,NA,55,NA,NA,NA,NA,NA,NA,NA
