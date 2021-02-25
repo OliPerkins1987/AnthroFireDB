@@ -1,0 +1,75 @@
+"","State","Year","Fire intention","Fire control (0-3)","Fire prevention (0-3)","Fire extinction (0-3)","Count"
+"1","Alabama",1990,"Pyrome management",NA,2,NA,1
+"2","Alabama",2000,"Pyrome management",NA,2,NA,1
+"3","Alabama",2000,NA,NA,1,NA,1
+"4","Alaska",1990,NA,NA,NA,2.5,4
+"5","Arizona",1990,"Pyrome management",NA,2.5,NA,2
+"6","Arizona",2000,"Pyrome management",NA,2,NA,1
+"7","Arkansas",2010,"Pasture management",2,NA,NA,2
+"8","Arkansas",2010,NA,NA,NA,2,2
+"9","California",1990,"Pyrome management",2,1.90909090909091,NA,11
+"10","California",1990,NA,3,3,3,4
+"11","California",2000,"Pasture management",NA,NA,NA,2
+"12","California",2000,"Pyrome management",2,2.25,NA,8
+"13","California",2000,NA,2,2,0,2
+"14","California",2010,"Hunter gatherer",3,NA,NA,1
+"15","California",2010,"Pyrome management",3,2,NA,5
+"16","California",2010,NA,NA,1,NA,2
+"17","Colorado",1990,"Pyrome management",NA,1.33333333333333,NA,3
+"18","Colorado",1990,NA,NA,1.25,3,4
+"19","Colorado",2000,"Pyrome management",NA,1,NA,1
+"20","Colorado",2000,NA,NA,2,NA,1
+"21","Florida",1990,"Pyrome management",NA,3,NA,1
+"22","Georgia",1990,"Pyrome management",NA,2.5,NA,2
+"23","Georgia",2000,NA,3,NA,NA,1
+"24","Idaho",1990,"Pyrome management",NA,2.5,NA,2
+"25","Idaho",2000,"Pyrome management",NA,1,NA,2
+"26","Idaho",2000,NA,1,0.333333333333333,NA,3
+"27","Idaho",2010,NA,NA,2,1.5,8
+"28","Illinois",1990,"Pyrome management",NA,1,NA,1
+"29","Indiana",1990,"Pyrome management",NA,0,NA,1
+"30","Iowa",1990,"Pyrome management",NA,1,NA,1
+"31","Kansas",1990,"Pasture management",NA,NA,NA,2
+"32","Kansas",1990,"Pyrome management",NA,1,NA,1
+"33","Kentucky",1990,"Pyrome management",NA,1,NA,2
+"34","Louisiana",1990,"Pyrome management",NA,1.5,NA,2
+"35","Maine",1990,"Pyrome management",NA,1,NA,1
+"36","Michigan",1990,"Pyrome management",NA,2,NA,1
+"37","Minnesota",1990,"Pyrome management",NA,1.5,NA,2
+"38","Missouri",1990,"Pyrome management",NA,1.5,NA,2
+"39","Missouri",1990,NA,NA,NA,3,1
+"40","Montana",1990,"Pyrome management",NA,1.66666666666667,NA,3
+"41","Montana",2000,"Pyrome management",NA,1,NA,1
+"42","Nebraska",1990,"Pyrome management",NA,1,NA,2
+"43","Nebraska",2010,"Pasture management",2,NA,NA,2
+"44","Nebraska",2010,NA,3,1,2,6
+"45","Nevada",1990,"Pyrome management",NA,2,NA,1
+"46","Nevada",2000,"Pyrome management",3,1.8,NA,5
+"47","New Hampshire",1990,"Pyrome management",NA,1,NA,1
+"48","New Mexico",1990,"Pyrome management",NA,1.66666666666667,NA,3
+"49","New Mexico",2000,"Pyrome management",NA,1,NA,1
+"50","New York",1990,"Pyrome management",NA,1,NA,2
+"51","North Carolina",1990,"Pyrome management",NA,1.5,NA,2
+"52","North Dakota",1990,"Pyrome management",NA,1.5,NA,2
+"53","Oklahoma",1990,NA,3,NA,NA,1
+"54","Oregon",1990,"Crop residue burning",1.90909090909091,NA,NA,11
+"55","Oregon",1990,"Pyrome management",NA,2.5,NA,8
+"56","Oregon",1990,NA,NA,NA,2.69230769230769,13
+"57","Oregon",2000,"Pyrome management",NA,1,NA,1
+"58","Pennsylvania",1990,"Pyrome management",NA,0,NA,1
+"59","South Dakota",1990,"Pyrome management",NA,1,NA,2
+"60","Tennessee",1990,"Pyrome management",NA,1,NA,2
+"61","Texas",1990,"Pyrome management",NA,1,NA,3
+"62","Texas",1990,NA,3,NA,NA,1
+"63","Texas",2000,"Pasture management",2,NA,NA,1
+"64","Utah",1990,"Pyrome management",NA,2,NA,3
+"65","Virginia",1990,"Pyrome management",NA,1,NA,2
+"66","Washington",1990,"Pyrome management",NA,1.5,NA,2
+"67","Washington",2000,"Pyrome management",NA,1,NA,1
+"68","Washington",2000,NA,NA,2,2,2
+"69","Washington",2010,NA,NA,3,NA,2
+"70","Wisconsin",1990,"Pyrome management",NA,1,NA,1
+"71","Wisconsin",1990,NA,NA,NA,3,1
+"72","Wisconsin",2000,NA,NA,2,3,2
+"73","Wyoming",1990,"Pyrome management",NA,2,NA,2
+"74","Wyoming",2000,"Pyrome management",NA,1,NA,1
