@@ -239,6 +239,42 @@ Simplify.source <- function(x = recordinfo$Data.Source.s.) {
 
 
 
+############################################################
+
+### 2e) Simplify land use system
+
+############################################################
+
+Assign.landsystem <- function(x = reported_fire$AFT) {
+  
+  x <- tolower(as.character(x))
+  
+  y <- ifelse(grepl('livestock', x), 'Pasture',
+        #ifelse(grepl('small-holder', x), 'Cropland', 
+        ifelse(x == 'pastoralist', 'Pastoralist',
+          ifelse(x == 'shifting cultivation', 'Shifting cultivation',
+          ifelse(x == 'intensive farmer', 'Cropland',
+          ifelse(grepl('logging', x), 'Forestry',
+          ifelse(grepl('arable', x), 'Cropland', 
+          ifelse(grepl('forestry', x), 'Forestry', 
+          ifelse(grepl('conservationist', x), 'Non-Extractive',
+          ifelse(x == 'state land manager', 'Non-Extractive',
+          ifelse(x == 'agroecologist', 'Cropland', 
+          ifelse(x == 'recreationalist', 'Non-Extractive', 
+          ifelse(grepl('hunter-gatherer', x), 'Hunter-gatherer',
+          ifelse(x == 'unoccupied', 'Non-Extractive',
+          ifelse(x == 'fire suppression agent', 'Non-Extractive',
+          ifelse(x == 'Other (see notes)', 'Other', NA)))))))))))))))
+  
+  return(y) 
+  
+}
+
+
+
+
+
+
 ###############################################################
 
 #3) Data availability
