@@ -42,10 +42,18 @@ load.db <- function(r.notes = TRUE, env = .GlobalEnv, merge.stage = F) {
   
   assign('Landuse', LULC, envir = env)
   
+  
   fire                            <- read_excel(dbstring, sheet =  3)
   fire[, c(6, 7, 10:28)]          <- apply(fire[, c(6, 7, 10:28)], 2, function(x) {ifelse(x == 'ND', NA, x)})
   fire[, c(10:26)]                <- apply(fire[, c(10:26)], 2, function(x) {as.numeric(as.character(x))})
   fire[, c(27, 28)]               <- lapply(fire[, c(27, 28)], function(x){as.factor(x)})
+  
+    if(merge.stage == T) {
+    
+    fire <- merge(Landuse[, c(1, 3)], fire, by = 'Case Study ID', all.x = F, all.y = T)
+    
+    }
+    
   
   assign('reported_fire', fire, envir = env)
   
@@ -57,12 +65,13 @@ load.db <- function(r.notes = TRUE, env = .GlobalEnv, merge.stage = F) {
   
   if(merge.stage == T) {
     
-    est_fire <- merge(Landuse[, c(1, 3)], est_fire, by = 'Case Study ID', all.x = T, all.y = T)
+    est_fire <- merge(Landuse[, c(1, 3)], est_fire, by = 'Case Study ID', all.x = F, all.y = T)
     
     }
   
   assign('est_fire', est_fire, envir = env)
 
+  
   sup                             <-  read_excel(dbstring, sheet = 5)
   sup[, -c(11, 13, 14)]           <-  lapply(sup[, -c(11, 13, 14)],factor) 
   
