@@ -83,6 +83,7 @@ Fire.use$Intended <- ifelse(grepl('intended', tolower(Fire.use$Behaviour)), 'Int
 
 ### By AFR
 ### !!! JM
+### Add 'Fire purpose' to grouping arg to see fire use types by AFR
 
 #####################################################
 
