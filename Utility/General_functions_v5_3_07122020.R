@@ -27,7 +27,7 @@
 
 
 
-load.db <- function(r.notes = TRUE, env = .GlobalEnv) {
+load.db <- function(r.notes = TRUE, env = .GlobalEnv, merge.stage = F) {
 
   rec                               <- read_excel(dbstring, sheet = 1)
   if(r.notes == TRUE){ rec          <- data.frame(rec[, 1:16])}
@@ -53,7 +53,13 @@ load.db <- function(r.notes = TRUE, env = .GlobalEnv) {
   est_fire[, c(6, 7, 10:27)]      <- apply(est_fire[, c(6, 7, 10:27)], 2, function(x) {ifelse(x == 'ND', NA, x)})
   est_fire[, c(10:26)]            <- lapply(est_fire[, c(10:26)], function(x){as.factor(x)})
   est_fire                        <- est_fire[1:nrow(reported_fire), ]
-  est_fire$`Fire intention`       <- gsub("&amp;", "&", est_fire$`Fire intention`)
+  est_fire$`Fire purpose`         <- gsub("&amp;", "&", est_fire$`Fire purpose`)
+  
+  if(merge.stage == T) {
+    
+    est_fire <- merge(Landuse[, c(1, 3)], est_fire, by = 'Case Study ID', all.x = T, all.y = T)
+    
+    }
   
   assign('est_fire', est_fire, envir = env)
 
