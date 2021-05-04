@@ -190,7 +190,7 @@ unbin <- function(data, metric = 'Size', method = 'Mean') {
 
 ###############################################################
 
-Simplify.intention <- function(x = reported_fire$`Fire intention`, 
+Simplify.purpose <- function(x = reported_fire$`Fire purpose`, 
                                AFT = reported_fire$AFT) {
   
   y <- ifelse(x == 'Accesibility', 'Other', 
