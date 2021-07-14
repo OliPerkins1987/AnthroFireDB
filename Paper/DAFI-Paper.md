@@ -507,6 +507,20 @@ fs.cs.afr <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[c(13:20)],
                                                                       inc.Absence = F, escape.rm = T)}))
 ```
 
+#### Fire density
+
+``` r
+firedensity <- rep_FUS %>%
+  filter(`Presence / Absence` == 'Presence') %>%
+  filter(`Fire type` == 'Human, deliberate') %>%
+  summarise(meanden = mean(.[[12]], na.rm=T), medianden = median(.[[12]], na.rm=T))
+
+firedensity
+```
+
+    ##      meanden  medianden
+    ## 1 0.08582157 0.04873611
+
 **Data in DAFI show that deliberate anthropogenic fires occur (where
 present) at a median and mean rate of 0.075 and 1.83 km-2 year-1
 respectively. Highly dense anthropogenic fires are found in very fertile
@@ -526,7 +540,7 @@ fs_mean_kde
 
     ## Warning: Removed 4 rows containing non-finite values (stat_density).
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
 
 ``` r
 fs_mean_box <- box.FS.regime(fs.cs.afr, metric = 'mean', boxtype='box', 
@@ -539,7 +553,7 @@ fs_mean_box
 
     ## Warning: Removed 11 rows containing non-finite values (stat_summary).
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-14-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-15-2.png)<!-- -->
 
 ``` r
 ba_ha_box <- box.BA.regime(dat.temp=ba.cs.afr,metric = 'burned area (ha)', boxtype='box', 
@@ -548,7 +562,7 @@ ba_ha_box <- box.BA.regime(dat.temp=ba.cs.afr,metric = 'burned area (ha)', boxty
 ba_ha_box
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
 
 ``` r
 ba_ha_kde <- hist.fire.regime(dat.temp=ba.cs.afr,metric = 'burned area (ha)', bin_width = -1, log_scale=T, regime=F, vertical=T,  scale_limits = c(0.01, 1000000000)) 
@@ -556,7 +570,7 @@ ba_ha_kde <- hist.fire.regime(dat.temp=ba.cs.afr,metric = 'burned area (ha)', bi
 ba_ha_kde
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-15-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-16-2.png)<!-- -->
 
 ## 3.3 Fire Suppression
 
@@ -621,13 +635,13 @@ p4 <- c.sup.c %>%
 p3
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
 
 ``` r
 p4
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-16-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-17-2.png)<!-- -->
 
 ``` r
 c.sup.c %>%
@@ -723,7 +737,7 @@ p7 <- pol.sum %>%
 p7
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
 
 ``` r
 #policy at lowest level of data ('Direct Fire Policy ID')
@@ -805,7 +819,7 @@ p.pol.pid <- pol.pid %>%
 p.pol.pid
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-21-1.png)<!-- -->
 
 ``` r
 #paper figure!
@@ -874,13 +888,13 @@ s.pol.cs <- pol.cs %>%
 p.pol.cs
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-21-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
 
 ``` r
 s.pol.cs
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-21-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-22-2.png)<!-- -->
 
 ``` r
 pol.cs %>%
@@ -1016,7 +1030,7 @@ w
 
     ## Warning: Removed 1 rows containing missing values (geom_point).
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
 
 ``` r
 i
@@ -1024,7 +1038,7 @@ i
 
     ## Warning: Removed 1 rows containing missing values (geom_point).
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-25-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-26-2.png)<!-- -->
 
 ``` r
 count21ha <- rep_FUS %>%

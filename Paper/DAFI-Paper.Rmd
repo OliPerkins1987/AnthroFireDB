@@ -342,6 +342,17 @@ fs.cs.afr <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[c(13:20)],
                                                                       inc.Absence = F, escape.rm = T)}))
 ```
 
+#### Fire density
+```{r}
+
+firedensity <- rep_FUS %>%
+  filter(`Presence / Absence` == 'Presence') %>%
+  filter(`Fire type` == 'Human, deliberate') %>%
+  summarise(meanden = mean(.[[12]], na.rm=T), medianden = median(.[[12]], na.rm=T))
+
+firedensity
+```
+
 **Data in DAFI show that deliberate anthropogenic fires occur (where present) at a median and mean rate of 0.075 and 1.83 km-2 year-1 respectively. Highly dense anthropogenic fires are found in very fertile agricultural areas such as the Mekong River Delta, where data in DAFI suggest 96 fires km-2 Year-1. At the lower end of the scale, pasture fires in DAFI are reported at 0.09 fires km-2 Year-1. Similarly, fire return intervals are typically short, with median of 3 and mean of 7.14 years. **
 
 
