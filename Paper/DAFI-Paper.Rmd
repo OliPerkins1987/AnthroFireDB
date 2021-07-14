@@ -218,8 +218,8 @@ rp.cs.afr <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[27],
 
 ### Table 2
 
+#### DAFI records
 ```{r}
-
 #DAFI Records %
 fu.count <- rep_FUS %>%
   drop_na(`Fire purpose`) %>%
@@ -235,7 +235,10 @@ fu.perc
 
 #% that the seven main fire use tyoe compose
 fu.contrib <- sum(fu.perc$fuperc) - fu.perc$fuperc[fu.perc$`Fire purpose` == 'Other']
+```
 
+#### Mean size (ha)
+```{r}
 #Mean Size (ha)  #intended fire size mean
 fs.fp <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[17],
                                      function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
@@ -246,10 +249,12 @@ fu.sizemn <- fs.fp %>%
   dplyr::select(`Fire purpose`, `Combined.stat`)
 
 fu.sizemn 
+```
 
+#### Mean burned area (% LS)
 
-###
-#Mean burned area (% LS)  - unclear how are these being calclated?
+Unclear how are these being calclated - numbers below don't match current in paper
+```{r}
 
 #summarise grouped (sum) by case study, fire use
 ba.cs <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[c(21:26)],
@@ -258,8 +263,11 @@ ba.cs <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[c(21:26)],
                                                                       #sum_multi = c('Case Study ID', 'Anthropogenic fire regime','Fire purpose'),
                                                                       grouping = c('Fire purpose'),
                                                                       inc.Absence = F, escape.rm = T)}))
+filter(ba.cs, grepl('land cover', Behaviour)) 
+```
 
-
+#### Return period (years)
+```{r}
 #return period (years)
 rp.cs <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[27],
                                      function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=rep_FUS,
@@ -268,8 +276,10 @@ rp.cs <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[27],
                                                                       grouping = c('Fire purpose'),
                                                                       inc.Absence = F, escape.rm = T)}))
 rp.cs 
+```
 
-
+#### Escaped %
+```{r}
 #escaped - unclear how these are being calculated 
 typ.count <- rep_FUS %>%
   drop_na(`Fire type`) %>%

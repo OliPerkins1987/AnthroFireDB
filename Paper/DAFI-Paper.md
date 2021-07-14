@@ -292,6 +292,8 @@ rp.cs.afr <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[27],
 
 ### Table 2
 
+#### DAFI records
+
 ``` r
 #DAFI Records %
 fu.count <- rep_FUS %>%
@@ -322,7 +324,11 @@ fu.perc
 ``` r
 #% that the seven main fire use tyoe compose
 fu.contrib <- sum(fu.perc$fuperc) - fu.perc$fuperc[fu.perc$`Fire purpose` == 'Other']
+```
 
+#### Mean size (ha)
+
+``` r
 #Mean Size (ha)  #intended fire size mean
 fs.fp <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[17],
                                      function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
@@ -346,10 +352,12 @@ fu.sizemn
     ## 8   Vegetation clearance     9.1709286
     ## 9                   <NA>    24.4153846
 
-``` r
-###
-#Mean burned area (% LS)  - unclear how are these being calclated?
+#### Mean burned area (% LS)
 
+Unclear how are these being calclated - numbers below don’t match
+current in paper
+
+``` r
 #summarise grouped (sum) by case study, fire use
 ba.cs <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[c(21:26)],
                                      function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=rep_FUS,
@@ -357,8 +365,35 @@ ba.cs <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[c(21:26)],
                                                                       #sum_multi = c('Case Study ID', 'Anthropogenic fire regime','Fire purpose'),
                                                                       grouping = c('Fire purpose'),
                                                                       inc.Absence = F, escape.rm = T)}))
+filter(ba.cs, grepl('land cover', Behaviour)) 
+```
 
+    ##              Fire purpose Reported.stat Reported.N  Est.stat Est.N
+    ## 1  Crop field preparation      8.200000          2  8.200000     2
+    ## 2    Crop residue burning     34.248448         13 34.248448    13
+    ## 3       Pyrome management      6.134444          5  6.134444     5
+    ## 4  Crop field preparation      3.233262         23  3.233262    23
+    ## 5    Crop residue burning     49.068647         40 49.068647    40
+    ## 6         Hunter gatherer     18.950000          2 18.950000     2
+    ## 7      Pasture management     53.333333          6 53.333333     6
+    ## 8       Pyrome management      3.333693         13  3.333693    13
+    ## 9    Vegetation clearance     17.012739          2 17.012739     2
+    ## 10                   <NA>     22.677778          9 22.677778     9
+    ##    Combined.stat Combined.N                           Behaviour
+    ## 1       8.200000          4 Intended burned area % (land cover)
+    ## 2      34.248448         26 Intended burned area % (land cover)
+    ## 3       6.134444         10 Intended burned area % (land cover)
+    ## 4       3.233262         46   Actual burned area % (land cover)
+    ## 5      49.068647         80   Actual burned area % (land cover)
+    ## 6      18.950000          4   Actual burned area % (land cover)
+    ## 7      53.333333         12   Actual burned area % (land cover)
+    ## 8       3.333693         26   Actual burned area % (land cover)
+    ## 9      17.012739          4   Actual burned area % (land cover)
+    ## 10     22.677778         18   Actual burned area % (land cover)
 
+#### Return period (years)
+
+``` r
 #return period (years)
 rp.cs <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[27],
                                      function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=rep_FUS,
@@ -385,6 +420,8 @@ rp.cs
     ## 5         38 Fire return period (years)
     ## 6         20 Fire return period (years)
     ## 7         14 Fire return period (years)
+
+#### Escaped %
 
 ``` r
 #escaped - unclear how these are being calculated 
@@ -435,20 +472,20 @@ ggsave('/home/james/OneDrive/Research/Papers/InProgress/Perkins_DAFI/figures/Fig
 bar.purpose.regime(rep_fire_use, est_fire_use, bartype='dodge')
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 ``` r
 fig2
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-8-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->
 
 ``` r
 fig2all <- bar.purpose.regime(rep_fire_use, est_fire_use, bartype='fill')
 fig2all
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-8-3.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-12-3.png)<!-- -->
 
 ``` r
 # final paper
@@ -489,7 +526,7 @@ fs_mean_kde
 
     ## Warning: Removed 4 rows containing non-finite values (stat_density).
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
 ``` r
 fs_mean_box <- box.FS.regime(fs.cs.afr, metric = 'mean', boxtype='box', 
@@ -502,7 +539,7 @@ fs_mean_box
 
     ## Warning: Removed 11 rows containing non-finite values (stat_summary).
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-10-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-14-2.png)<!-- -->
 
 ``` r
 ba_ha_box <- box.BA.regime(dat.temp=ba.cs.afr,metric = 'burned area (ha)', boxtype='box', 
@@ -511,7 +548,7 @@ ba_ha_box <- box.BA.regime(dat.temp=ba.cs.afr,metric = 'burned area (ha)', boxty
 ba_ha_box
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
 
 ``` r
 ba_ha_kde <- hist.fire.regime(dat.temp=ba.cs.afr,metric = 'burned area (ha)', bin_width = -1, log_scale=T, regime=F, vertical=T,  scale_limits = c(0.01, 1000000000)) 
@@ -519,7 +556,7 @@ ba_ha_kde <- hist.fire.regime(dat.temp=ba.cs.afr,metric = 'burned area (ha)', bi
 ba_ha_kde
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-11-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-15-2.png)<!-- -->
 
 ## 3.3 Fire Suppression
 
@@ -584,13 +621,13 @@ p4 <- c.sup.c %>%
 p3
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
 
 ``` r
 p4
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-16-2.png)<!-- -->
 
 ``` r
 c.sup.c %>%
@@ -686,7 +723,7 @@ p7 <- pol.sum %>%
 p7
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
 
 ``` r
 #policy at lowest level of data ('Direct Fire Policy ID')
@@ -768,7 +805,7 @@ p.pol.pid <- pol.pid %>%
 p.pol.pid
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
 
 ``` r
 #paper figure!
@@ -837,13 +874,13 @@ s.pol.cs <- pol.cs %>%
 p.pol.cs
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-21-1.png)<!-- -->
 
 ``` r
 s.pol.cs
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-17-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-21-2.png)<!-- -->
 
 ``` r
 pol.cs %>%
@@ -979,7 +1016,7 @@ w
 
     ## Warning: Removed 1 rows containing missing values (geom_point).
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-21-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
 
 ``` r
 i
@@ -987,7 +1024,7 @@ i
 
     ## Warning: Removed 1 rows containing missing values (geom_point).
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-21-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-25-2.png)<!-- -->
 
 ``` r
 count21ha <- rep_FUS %>%
