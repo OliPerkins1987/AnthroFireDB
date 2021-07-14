@@ -144,4 +144,8 @@ map.behaviour('Policy', ggcolour = 'AFT',
               'Agroforestry, Market-oriented', 'Agroforestry, Subsistence-oriented', 'All', 'ND', 'Mixed cropping-livestock small holder, Market-oriented', 
               'Mixed cropping-livestock small holder, Subsistence-oriented')")
 
+map.behaviour.ras(dat.field='Data Source', ras.res=2, ras.function='count')
 
+map.behaviour.ras(dat.field='Data Source', ras.res=2, ras.function='mode')
+
+map.behaviour.ras(dat.field='Fire use type', ras.res=2, ras.function='mode')

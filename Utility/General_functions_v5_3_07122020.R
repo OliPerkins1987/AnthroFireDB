@@ -27,7 +27,7 @@
 
 
 
-load.db <- function(r.notes = TRUE, env = .GlobalEnv) {
+load.db <- function(r.notes = TRUE, env = .GlobalEnv, merge.stage = F) {
 
   rec                               <- read_excel(dbstring, sheet = 1)
   if(r.notes == TRUE){ rec          <- data.frame(rec[, 1:16])}
@@ -42,10 +42,18 @@ load.db <- function(r.notes = TRUE, env = .GlobalEnv) {
   
   assign('Landuse', LULC, envir = env)
   
+  
   fire                            <- read_excel(dbstring, sheet =  3)
   fire[, c(6, 7, 10:28)]          <- apply(fire[, c(6, 7, 10:28)], 2, function(x) {ifelse(x == 'ND', NA, x)})
   fire[, c(10:26)]                <- apply(fire[, c(10:26)], 2, function(x) {as.numeric(as.character(x))})
   fire[, c(27, 28)]               <- lapply(fire[, c(27, 28)], function(x){as.factor(x)})
+  
+    if(merge.stage == T) {
+    
+    fire <- merge(Landuse[, c(1, 3)], fire, by = 'Case Study ID', all.x = F, all.y = T)
+    
+    }
+    
   
   assign('reported_fire', fire, envir = env)
   
@@ -53,10 +61,17 @@ load.db <- function(r.notes = TRUE, env = .GlobalEnv) {
   est_fire[, c(6, 7, 10:27)]      <- apply(est_fire[, c(6, 7, 10:27)], 2, function(x) {ifelse(x == 'ND', NA, x)})
   est_fire[, c(10:26)]            <- lapply(est_fire[, c(10:26)], function(x){as.factor(x)})
   est_fire                        <- est_fire[1:nrow(reported_fire), ]
-  est_fire$`Fire intention`       <- gsub("&amp;", "&", est_fire$`Fire intention`)
+  est_fire$`Fire purpose`         <- gsub("&amp;", "&", est_fire$`Fire purpose`)
+  
+  if(merge.stage == T) {
+    
+    est_fire <- merge(Landuse[, c(1, 3)], est_fire, by = 'Case Study ID', all.x = F, all.y = T)
+    
+    }
   
   assign('est_fire', est_fire, envir = env)
 
+  
   sup                             <-  read_excel(dbstring, sheet = 5)
   sup[, -c(11, 13, 14)]           <-  lapply(sup[, -c(11, 13, 14)],factor) 
   
@@ -184,7 +199,7 @@ unbin <- function(data, metric = 'Size', method = 'Mean') {
 
 ###############################################################
 
-Simplify.intention <- function(x = reported_fire$`Fire intention`, 
+Simplify.purpose <- function(x = reported_fire$`Fire purpose`, 
                                AFT = reported_fire$AFT) {
   
   y <- ifelse(x == 'Accesibility', 'Other', 
@@ -236,6 +251,42 @@ Simplify.source <- function(x = recordinfo$Data.Source.s.) {
   return(y) 
   
 }
+
+
+
+############################################################
+
+### 2e) Simplify land use system
+
+############################################################
+
+Assign.landsystem <- function(x = reported_fire$AFT) {
+  
+  x <- tolower(as.character(x))
+  
+  y <- ifelse(grepl('livestock', x), 'Pasture',
+        #ifelse(grepl('small-holder', x), 'Cropland', 
+        ifelse(x == 'pastoralist', 'Pastoralist',
+          ifelse(x == 'shifting cultivation', 'Shifting cultivation',
+          ifelse(x == 'intensive farmer', 'Cropland',
+          ifelse(grepl('logging', x), 'Forestry',
+          ifelse(grepl('arable', x), 'Cropland', 
+          ifelse(grepl('forestry', x), 'Forestry', 
+          ifelse(grepl('conservationist', x), 'Non-Extractive',
+          ifelse(x == 'state land manager', 'Non-Extractive',
+          ifelse(x == 'agroecologist', 'Cropland', 
+          ifelse(x == 'recreationalist', 'Non-Extractive', 
+          ifelse(grepl('hunter-gatherer', x), 'Hunter-gatherer',
+          ifelse(x == 'unoccupied', 'Non-Extractive',
+          ifelse(x == 'fire suppression agent', 'Non-Extractive',
+          ifelse(x == 'Other (see notes)', 'Other', NA)))))))))))))))
+  
+  return(y) 
+  
+}
+
+
+
 
 
 

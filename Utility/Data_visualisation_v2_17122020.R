@@ -379,8 +379,144 @@ map.behaviour <- function(type = c('Records', 'Land use', 'Fire', 'Suppression',
 }
 
 
+#############################################################################################
+
+### 4) Map database metrics RASTER
+ 
+### Author: James Millington, 03 Feb 2021
+
+### Creates a raster map plot of database values - driven by levelplot
+
+### Currently count and mode fnctions available for rasterizing
+
+### Currently only tested for 'Fire use type' and 'Data Source' fields 
+
+#############################################################################################
 
 
+map.behaviour.ras <- function(dat.field, ras.res=2, ras.function=c('count','mode')){
+  
+  require(raster)
+  require(rasterVis)
+  require(latticeExtra)
+  require(maps) 
+  require(maptools)
+  
+  
+  ###
+  ### Create raster functions here, passed to fun in rasterize
+  ### These might be actual function definitions as for 'mode'
+  ### Or they might be one of the special 'character values' as detailed in rasterize help
+  ###  
+  
+  if(ras.function == 'mode'){
+    #function for mode from https://www.tutorialspoint.com/r/r_mean_median_mode.htm
+    ras.func <- function(v,...) {
+      uniqv <- unique(v) 
+      uniqv[which.max(tabulate(match(v, uniqv)))]
+    }
+  }  else if(ras.function == 'count') {
+    ras.func <- 'count'
+  } else {
+    stop('ras.function specified incorrectly')
+  }
+  
+  
+  ###
+  #Create and manipulate data 
+  ###
+  fdat <- merge(recordinfo, est_fire, by.x= 'Case.Study.ID',
+                by.y = 'Case Study ID') 
+  
+  #filter the missing value
+  fdat <- fdat[fdat$Longitude != "NA",]
+  
+  
+  
+  ###
+  ###Rasterizing requires a numeric field s
+  ###So convert field to numeric if needed
+  if(dat.field=='Fire use type'){
+    #list of fire use types in the order we want to present
+    flist <-  c('Hunter gatherer',
+                'Vegetation clearance',
+                'Pasture management',
+                'Crop field preparation',
+                'Crop residue burning',
+                'Pyrome management',
+                'Arson',
+                'Other') 
+  }
+  
+  if(dat.field=='Data Source'){
+    #list of data sources in the order we want to present
+    flist <-  c('Remote sensing',
+                'Secondary',
+                'Literature review',
+                'Mixed',
+                'Primary',
+                'Other'
+    )   
+  }
+  
+  #sequence of length flist
+  fseq <- seq(1,length(flist),1)
+  
+  #convert dat.field column to values (using flist)
+  fdat['DATn'] <- fseq[match(fdat[[dat.field]], flist)]
+  
+  
+  
+  ###
+  ###Make data spatial
+  ###
+  xy <- fdat[,c("Longitude","Latitude")]
+  xy <- as.data.frame(lapply(xy, as.numeric)) 
+  fdat.sp <- SpatialPointsDataFrame(coords = xy, data = fdat,
+                                    proj4string = CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0"))
+  
+  ###
+  ###Create empty raster for rasterising
+  ###
+  worldRas <- raster(xmn = -180,   # set minimum x coordinate
+                     xmx = 180,    # set maximum x coordinate
+                     ymn = -60,     # set minimum y coordinate
+                     ymx = 80,     # set maximum y coordinate
+                     res = c(ras.res,ras.res)) # resolution in c(x,y) direct
+  
+  worldRas[] <- seq(from = 1, to = ncell(worldRas),by = 1)
+  
+  ###
+  ###Rasterize 
+  ###
+  fRas <- rasterize(x=xy,y=worldRas,field=fdat$DATn,fun=ras.func)
+  
+  
+  ###
+  ###Plot
+  ###
+  
+  #if function is returning a categorical
+  if(ras.function=='mode'){
+    #ratify for categories
+    fRas <- ratify(fRas)     #tell R that the values are categorical                    
+    rat <- levels(fRas)[[1]]    #apply the levels (i.e. categories) 
+    rat[[dat.field]] <- flist     #set the names of categories
+    levels(fRas) <- rat         #apply the named categories to the raster
+  }
+  
+  #basemap
+  countries <- map("world", plot=FALSE) 
+  countries <- map2SpatialLines(countries, proj4string = CRS("+proj=longlat"))
+  
+  #plot
+  plt <- rasterVis::levelplot(fRas, margin = FALSE, main=paste0(dat.field, " (", ras.function, ")"),col.regions=inferno(20, direction=-1)) +
+    latticeExtra::layer(sp.lines(countries), under=T, theme = simpleTheme(lwd=0.5, alpha.line=0.5),
+                        data=list(countries=countries))
+
+    return(plt)
+  
+}
 
 
 
