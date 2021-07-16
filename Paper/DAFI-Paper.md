@@ -102,8 +102,8 @@ studies) but were also from reports produced by governments and NGOs
 
 Case studies used data exclusively from Field Studies (39% of case
 studies), Institutional Data Repositories (23%), Literature Review (7%),
-Remote Sensing (4%) or a combination (`src.mix`%) of these data source
-types. The remaining case studies (\~3%) used expert elicitation, media
+Remote Sensing (4%) or a combination (24%) of these data source types.
+The remaining case studies (\~3%) used expert elicitation, media
 reports, archival research and other reports as sources.
 
 When these data sources are mapped spatially (Figure 1) we find a
@@ -212,7 +212,7 @@ filter(lu.AFR, AFR=="Pre-industrial")$n
 
     ## [1] 261
 
-Furthermore, we were able to define an AFR for only 1605 of the `ncs`
+Furthermore, we were able to define an AFR for only 1605 of the 1809
 case studies (Pre-industrial 261, Transition 850, Industrial 300,
 Post-industrial 194). The incompleteness of the database means that the
 number of values used in analyses below varies depending on which
@@ -290,10 +290,6 @@ rp.cs.afr <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[27],
                                                                       inc.Absence = F, escape.rm = T)}))
 ```
 
-### Table 2
-
-#### DAFI records
-
 ``` r
 #DAFI Records %
 fu.count <- rep_FUS %>%
@@ -306,7 +302,23 @@ fu.perc <- rep_FUS %>%
   summarise(n=n()) %>%
   mutate(fuperc = 100* n / as.numeric(fu.count))
 
-fu.perc  
+#% that the seven main fire use tyoe compose
+fu.contrib <- round(sum(fu.perc$fuperc) - fu.perc$fuperc[fu.perc$`Fire purpose` == 'Other'],0)
+```
+
+Overall, 20 anthropogenic fire uses were identified during literature
+review, but many were closely related (e.g., ‘pasture renewal’ and
+‘rangeland management’). After such similar types were combined (see
+Appendix C), seven dominant fire uses emerged (Table 2) each with more
+than 100 instances in the database and accounting for 93% of fire
+instance records.
+
+### Table 2
+
+#### DAFI records
+
+``` r
+fu.perc
 ```
 
     ## # A tibble: 8 x 3
@@ -320,11 +332,6 @@ fu.perc
     ## 6 Pasture management       434  12.8 
     ## 7 Pyrome management        628  18.5 
     ## 8 Vegetation clearance     474  14.0
-
-``` r
-#% that the seven main fire use tyoe compose
-fu.contrib <- sum(fu.perc$fuperc) - fu.perc$fuperc[fu.perc$`Fire purpose` == 'Other']
-```
 
 #### Mean size (ha)
 
@@ -395,7 +402,6 @@ ba.fp.lc
 #### Return period (years)
 
 ``` r
-#return period (years)
 rp.fp <- plyr::rbind.fill(lapply(colnames(rep_FUS)[27],
                                      function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
                                                                       type = "Fire", behaviour = x,
@@ -515,66 +521,6 @@ escaped.g
     ## 2      Pyrome management      0.06
     ## 3   Vegetation clearance      0.95
 
-#### Ignitions
-
-``` r
-igs <- plyr::rbind.fill(lapply(colnames(rep_FUS)[c(11:12)],
-                      function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
-                                                       type = "Fire", behaviour = x, 
-                                                       grouping = c('Case Study ID'), escape.rm = T)}))
-
-
-igs.med <- median(igs$Combined.stat)
-igs.mean <- sum(igs$Combined.stat * igs$Combined.N) / sum(igs$Combined.N, na.rm = T)
-
-
-### Fire Return Period - not annualised
-FR <- plyr::rbind.fill(lapply(colnames(rep_FUS)[c(27)], 
-                               function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
-                                                                type = "Fire", behaviour = x, 
-                                                                grouping = c('Case Study ID'), escape.rm = T)}))
-
-round(igs.med,2)
-```
-
-    ## [1] 0.08
-
-``` r
-round(igs.mean,2)
-```
-
-    ## [1] 1.53
-
-#### Return Interval
-
-``` r
-ri.mean <- sum(FR$Combined.stat * FR$Combined.N) / sum(FR$Combined.N, na.rm = T)
-
-### median FR - use all values for more accuracy (not possible for igs using aggregation)
-all_fire <- rep_FUS
-all_fire$`Fire return period (years)` <- ifelse(is.na(all_fire$`Fire return period (years)`), 
-                                                unlist(unbin(est_FUS$`Fire return period (years)`)), 
-                                                all_fire$`Fire return period (years)`)
-
-all_fire <- all_fire %>% filter(`Fire type` == 'Human, deliberate' & `Presence / Absence` == 'Presence')
-
-ri.med <- median(all_fire$`Fire return period (years)`, na.rm = T)
-
-round(ri.mean,2)
-```
-
-    ## [1] 6.37
-
-``` r
-round(ri.med,2)
-```
-
-    ## [1] 3
-
-After such similar types were combined (see online appendix B\!), seven
-dominant fire uses emerged (Table 2), each with more than 100 instances
-in the database and accounting for 93.4276452% of fire instance records.
-
 ### Figure 2
 
 ``` r
@@ -586,63 +532,61 @@ ggsave('/home/james/OneDrive/Research/Papers/InProgress/Perkins_DAFI/figures/Fig
 bar.purpose.regime(rep_fire_use, est_fire_use, bartype='dodge')
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
 ``` r
 fig2
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-15-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-14-2.png)<!-- -->
 
 ``` r
 fig2all <- bar.purpose.regime(rep_fire_use, est_fire_use, bartype='fill')
 fig2all
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-15-3.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-14-3.png)<!-- -->
+
+#### Ignitions
 
 ``` r
-# final paper
-# 
-rep_FUS <- rep_fire_use
-est_FUS <- est_fire_use
-
-rep_FUS$`Fire purpose` <- Simplify.purpose(rep_fire_use$`Fire purpose`, AFT = rep_fire_use$AFT)
-est_FUS$`Fire purpose` <- Simplify.purpose(est_fire_use$`Fire purpose`, AFT = est_fire_use$AFT)
+igs <- plyr::rbind.fill(lapply(colnames(rep_FUS)[c(11:12)],
+                      function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
+                                                       type = "Fire", behaviour = x, 
+                                                       grouping = c('Case Study ID'), escape.rm = T)}))
 
 
-
-#summarise grouped (sum) by case study, AFR and fire use
-fs.cs.afr <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[c(13:20)],
-                                     function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
-                                                                      type = "Fire", behaviour = x,
-                                                                      #sum_multi = c('Case Study ID', 'Anthropogenic fire regime','Fire purpose','Study Year'),
-                                                                      grouping = c('Case Study ID', 'Anthropogenic fire regime','Fire purpose'),
-                                                                      inc.Absence = F, escape.rm = T)}))
+igs.med <- round(median(igs$Combined.stat),2)
+igs.mean <- round(sum(igs$Combined.stat * igs$Combined.N) / sum(igs$Combined.N, na.rm = T),2)
 ```
 
-#### Fire density
+Data in DAFI show that deliberate anthropogenic fires occur (where
+present) at a median and mean rate of 0.08 and `igs.mean` km-2 year-1
+respectively.
+
+#### Return Interval
 
 ``` r
-firedensity <- rep_FUS %>%
-  filter(`Presence / Absence` == 'Presence') %>%
-  filter(`Fire type` == 'Human, deliberate') %>%
-  summarise(meanden = mean(.[[12]], na.rm=T), medianden = median(.[[12]], na.rm=T))
+### Fire Return Period - not annualised
+FR <- plyr::rbind.fill(lapply(colnames(rep_FUS)[c(27)], 
+                               function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
+                                                                type = "Fire", behaviour = x, 
+                                                                grouping = c('Case Study ID'), escape.rm = T)}))
+ri.mean <- round(sum(FR$Combined.stat * FR$Combined.N) / sum(FR$Combined.N, na.rm = T),2)
 
-firedensity
+### median FR - use all values for more accuracy (not possible for igs using aggregation)
+all_fire <- rep_FUS
+all_fire$`Fire return period (years)` <- ifelse(is.na(all_fire$`Fire return period (years)`), 
+                                                unlist(unbin(est_FUS$`Fire return period (years)`)), 
+                                                all_fire$`Fire return period (years)`)
+
+all_fire <- all_fire %>% filter(`Fire type` == 'Human, deliberate' & `Presence / Absence` == 'Presence')
+
+ri.med <- round(median(all_fire$`Fire return period (years)`, na.rm = T),2)
 ```
 
-    ##      meanden  medianden
-    ## 1 0.08582157 0.04873611
-
-**Data in DAFI show that deliberate anthropogenic fires occur (where
-present) at a median and mean rate of 0.075 and 1.83 km-2 year-1
-respectively. Highly dense anthropogenic fires are found in very fertile
-agricultural areas such as the Mekong River Delta, where data in DAFI
-suggest 96 fires km-2 Year-1. At the lower end of the scale, pasture
-fires in DAFI are reported at 0.09 fires km-2 Year-1. Similarly, fire
-return intervals are typically short, with median of 3 and mean of 7.14
-years. **
+Similarly, fire return intervals are typically short, with median of 3
+and mean of 6.37 years.
 
 ### Figure 3
 
@@ -654,7 +598,7 @@ fs_mean_kde
 
     ## Warning: Removed 4 rows containing non-finite values (stat_density).
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
 
 ``` r
 fs_mean_box <- box.FS.regime(fs.cs.afr, metric = 'mean', boxtype='box', 
@@ -667,7 +611,7 @@ fs_mean_box
 
     ## Warning: Removed 11 rows containing non-finite values (stat_summary).
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-18-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-17-2.png)<!-- -->
 
 ``` r
 ba_ha_box <- box.BA.regime(dat.temp=ba.cs.afr,metric = 'burned area (ha)', boxtype='box', 
@@ -676,7 +620,7 @@ ba_ha_box <- box.BA.regime(dat.temp=ba.cs.afr,metric = 'burned area (ha)', boxty
 ba_ha_box
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-18-1.png)<!-- -->
 
 ``` r
 ba_ha_kde <- hist.fire.regime(dat.temp=ba.cs.afr,metric = 'burned area (ha)', bin_width = -1, log_scale=T, regime=F, vertical=T,  scale_limits = c(0.01, 1000000000)) 
@@ -684,7 +628,7 @@ ba_ha_kde <- hist.fire.regime(dat.temp=ba.cs.afr,metric = 'burned area (ha)', bi
 ba_ha_kde
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-19-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-18-2.png)<!-- -->
 
 ## 3.3 Fire Suppression
 
@@ -749,13 +693,13 @@ p4 <- c.sup.c %>%
 p3
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
 
 ``` r
 p4
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-20-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-19-2.png)<!-- -->
 
 ``` r
 c.sup.c %>%
@@ -831,6 +775,7 @@ filter(c.sup, AFR=='Post-industrial', Effort=="Intensive", Suppression=="Extinct
 ## 3.4 Fire Policy
 
 ``` r
+#figure not included but code retained
 pol.sum <- plyr::rbind.fill(lapply(colnames(policy)[c(10,14,19)],
                                      function (x){summarise.behaviour(type = "Policy", behaviour = x,
                                                                       grouping = c('Anthropogenic fire regime','Direct Fire policy ID'),
@@ -847,97 +792,9 @@ p7 <- pol.sum %>%
   scale_fill_viridis_d(option = 'inferno') +
   xlab("Anthropogenic Fire Regime") +
   ylab("Count")
-
-p7
-```
-
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
-
-``` r
-#policy at lowest level of data ('Direct Fire Policy ID')
-pol <- policy %>%
-  dplyr::select(2,4,10,14,19)  %>%
-  setNames(c("AFR","Type","Bans","Restrictions","Incentives")) %>%
-  filter(Type == 'Human, deliberate') %>% 
-  mutate(Bans = case_when(grepl("Yes", Bans, ignore.case=TRUE) ~ "Yes")) %>%
-  mutate(Restrictions = case_when(grepl("Yes", Restrictions, ignore.case=TRUE) ~ "Yes")) %>%
-  mutate(Incentives = case_when(grepl("Yes", Incentives, ignore.case=TRUE) ~ "Yes")) %>%
-  dplyr::select(-Type)
-
-pol <-pivot_longer(pol, cols=c("Bans":"Incentives"), names_to="Policy")
-
-#set factors, drop NAs and count
-pol <- pol %>%
-  mutate(Policy = factor(Policy, levels=c("Incentives","Restrictions","Bans"))) %>%
-  mutate(AFR = factor(AFR, levels = c("Pre-industrial","Transition","Industrial","Post-industrial"))) %>% 
-  drop_na(value) %>%
-  drop_na(AFR) %>%
-  count(AFR, Policy,.drop=FALSE)
-
-pol.plot <- pol %>%
-  ggplot(aes(x = AFR, y=n)) +
-  geom_bar(aes(fill=Policy),position='dodge',stat="identity") +
-  scale_fill_viridis_d(option = 'inferno') +
-  xlab("Anthropogenic Fire Regime") +
-  ylab("Count")
 ```
 
 ``` r
-#policy at lowest level of data ('Direct Fire Policy ID')
-pol.pid <- policy %>%
-  dplyr::select(2,4,10:17,19:22) %>%
-  rename('AFR' = 1) %>%
-  #rename('Health restriction' = 'Human health restriction') %>%
-  #rename('Health ban' = 'Human health ban') %>%
-  #filter(`Fire type` == 'Human, deliberate') %>% 
-  mutate_at(vars(-1,-2), funs(case_when(grepl("Yes", ., ignore.case=TRUE) ~ "Yes"))) %>%
-  dplyr::select(-`Fire type`)
-
-#create 'Other' Rationale for when Type = Yes but individual rationale is not specified
-pol.pid <- pol.pid %>% 
-  rename('Unknown incentives' = 'Incentives') %>%
-  rename('Unknown restriction' = 'Fire restricted') %>%
-  rename('Unknown ban' = 'Fire banned') %>%
-  mutate(`Unknown incentives` = if_else(`Unknown incentives` == "Yes" & is.na(`Economic incentives`) &
-                                          is.na(`Environmental incentives`) & is.na(`Health incentives`), "Yes", NA_character_)) %>%
-  mutate(`Unknown restriction` = if_else(`Unknown restriction` == "Yes" & is.na(`Economic restriction`) &
-                                          is.na(`Environmental restriction`) & is.na(`Health restriction`), "Yes", NA_character_)) %>%
-  mutate(`Unknown ban` = if_else(`Unknown ban` == "Yes" & is.na(`Economic ban`) &
-                                          is.na(`Environmental ban`) & is.na(`Health ban`), "Yes", NA_character_))
-
-#go long
-pol.pid <-pivot_longer(pol.pid, cols=c(-1), names_to="Rationale-Type")
-
-#create new columns for Rationale and Type then set factors and levels
-pol.pid <- pol.pid %>%
-  separate(`Rationale-Type`, c("Rationale", "Type"), sep=" ") %>%
-  mutate(Type = recode_factor(Type, incentives='Incentive',restriction='Restriction',ban='Ban')) %>%
-  mutate(Rationale = factor(Rationale, levels=c("Environmental","Economic","Health","Unknown"))) %>%
-  mutate(AFR = factor(AFR, levels = c("Pre-industrial","Transition","Industrial","Post-industrial")))
-
-#drop NAs and count         
-pol.pid <- pol.pid %>% 
-  drop_na(value) %>%
-  drop_na(AFR) %>%
-  count(AFR, Type, Rationale,.drop=FALSE)
-
-#plot
-p.pol.pid <- pol.pid %>%
-  ggplot(aes(x = AFR, y=n)) +
-  geom_bar(aes(fill=Type),position='dodge',stat="identity") +
-  facet_grid(Rationale~.) +
-  scale_fill_viridis_d(option = 'inferno') +
-  xlab("Anthropogenic Fire Regime") +
-  ylab("Count")
-
-p.pol.pid
-```
-
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->
-
-``` r
-#paper figure!
-
 #policy at case study level 
 pol.cs <- policy %>%
   dplyr::select(1,2,4,10:17,19:22) %>%
@@ -1002,13 +859,13 @@ s.pol.cs <- pol.cs %>%
 p.pol.cs
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
 
 ``` r
 s.pol.cs
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-25-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-22-2.png)<!-- -->
 
 ``` r
 pol.cs %>%
@@ -1144,7 +1001,7 @@ w
 
     ## Warning: Removed 1 rows containing missing values (geom_point).
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-29-1.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-26-1.png)<!-- -->
 
 ``` r
 i
@@ -1152,7 +1009,7 @@ i
 
     ## Warning: Removed 1 rows containing missing values (geom_point).
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-29-2.png)<!-- -->
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-26-2.png)<!-- -->
 
 ``` r
 count21ha <- rep_FUS %>%
@@ -1182,7 +1039,88 @@ We find that 59.5744681% of records in DAFI for mean size of
 deliberately started fires are \<21 ha, suggesting many anthropogenic
 fires will not be detected.
 
-Our results from DAFI support this; 78.7234043% of mean fire size
-records for deliberately started fires are \<100ha, and cropland fires
-in pre-industrial and transition regimes are generally smaller compared
-to fires ignited to burn across landscapes more broadly (Figure 3x\!).
+Ramo et al. (2021) also found that fires \<100 ha are critically
+important for characterizing landscape fire on a global scale. Our
+results from DAFI support this; 78.7234043% of mean fire size records
+for deliberately started fires are \<100ha, and cropland fires in
+pre-industrial and transition regimes are generally smaller compared to
+fires ignited to burn across landscapes more broadly (Figure 3x\!).
+
+Furthermore, the median and mean ignition density for deliberate
+anthropogenic fires in DAFI (0.08 and `igs.mean` respectively, section
+3.2.2) are far greater than the median value suggested by the
+MODIS-derived global fire atlas (\< 0.01 fires km-2 year-1; Andela et
+al., 2019).
+
+``` r
+rep_FUS <- rep_fire_use
+rep_FUS$`Fire purpose` <- Simplify.purpose(rep_fire_use$`Fire purpose`, AFT = rep_fire_use$AFT)
+
+hg.min <- rep_FUS %>%
+  filter(`Fire purpose` == 'Hunter gatherer') %>%
+  filter(`Presence / Absence` == 'Presence') %>%
+  summarise(min=min(`Actual fire size min (ha)`, na.rm=T))
+hg.min
+```
+
+    ##   min
+    ## 1 0.5
+
+``` r
+hg.max <- rep_FUS %>%
+  filter(`Fire purpose` == 'Hunter gatherer') %>%
+  filter(`Presence / Absence` == 'Presence') %>%
+  summarise(max=max(`Actual fire size max (ha)`, na.rm=T))
+```
+
+    ## Warning in max(`Actual fire size max (ha)`, na.rm = T): no non-missing arguments
+    ## to max; returning -Inf
+
+``` r
+hg.max
+```
+
+    ##    max
+    ## 1 -Inf
+
+``` r
+pas.min <- rep_FUS %>%
+  filter(`Fire purpose` == 'Pasture management') %>%
+  filter(`Presence / Absence` == 'Presence') %>%
+  summarise(min=min(`Actual fire size min (ha)`, na.rm=T))
+pas.min
+```
+
+    ##        min
+    ## 1 0.404686
+
+``` r
+pas.max <- rep_FUS %>%
+  filter(`Fire purpose` == 'Pasture management') %>%
+  filter(`Presence / Absence` == 'Presence') %>%
+  summarise(max=max(`Actual fire size max (ha)`, na.rm=T))
+pas.max
+```
+
+    ##   max
+    ## 1 150
+
+``` r
+fs.fp <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[13:20],
+                                     function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
+                                                                      type = "Fire", behaviour = x,
+                                                                      grouping = c('Fire purpose'),
+                                                                      inc.Absence = F, escape.rm = T)})) %>%
+  filter(`Fire purpose` %in% c('Hunter gatherer', 'Pasture management')) %>%
+  filter((grepl('max', Behaviour) | grepl('min', Behaviour)) & grepl('Actual', Behaviour))
+
+hg.min <- filter(fs.fp, `Fire purpose` == 'Hunter gatherer' & grepl('min', Behaviour))$Combined.stat
+hg.max <- filter(fs.fp, `Fire purpose` == 'Hunter gatherer' & grepl('max', Behaviour))$Combined.stat
+
+pas.min <- filter(fs.fp, `Fire purpose` == 'Pasture management' & grepl('min', Behaviour))$Combined.stat
+pas.max <- filter(fs.fp, `Fire purpose` == 'Pasture management' & grepl('max', Behaviour))$Combined.stat
+```
+
+In particular, hunter-gatherer fire sizes vary more than pasture
+managament fires, with sizes ranging from 1.4 ha to 8345 ha compared to
+4.4 ha to 244.8 ha.
