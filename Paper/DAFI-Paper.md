@@ -249,11 +249,7 @@ lu.AFR <- land_use %>%
   drop_na()
 
 cs.AFR <- sum(lu.AFR$n)
-
-filter(lu.AFR, AFR=="Pre-industrial")$n
 ```
-
-    ## [1] 261
 
 Furthermore, we were able to define an AFR for only 1605 of the 1809
 case studies (Pre-industrial 261, Transition 850, Industrial 300,
@@ -369,7 +365,7 @@ fu.perc
 #### Mean size (ha)
 
 ``` r
-#Mean Size (ha)  #intended fire size mean
+#summarise
 fs.fp <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[17],
                                      function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
                                                                       type = "Fire", behaviour = x,
@@ -396,6 +392,7 @@ fu.sizemn
 #### Mean burned area (% LS)
 
 ``` r
+#summarise
 ba.fp        <- plyr::rbind.fill(lapply(colnames(rep_FUS)[c(23:27)],
                                         function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
                                                                          type = "Fire", sum_multi = FALSE,
@@ -437,6 +434,7 @@ ba.fp.lc
 #### Return period (years)
 
 ``` r
+#summarise
 rp.fp <- plyr::rbind.fill(lapply(colnames(rep_FUS)[27],
                                      function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
                                                                       type = "Fire", behaviour = x,
@@ -461,6 +459,7 @@ dplyr::select(rp.fp, `Fire purpose`, Combined.stat)
 For fires uses with complete data
 
 ``` r
+#summarise
 igs <-  plyr::rbind.fill(lapply(colnames(rep_FUS)[c(11:12)],
                                   function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
                                                                    type = "Fire", sum_multi =  FALSE,
@@ -511,6 +510,7 @@ For less complete fire uses, use global (non-cropland) means with
 overall counts
 
 ``` r
+#summarise
 igs.o <-  plyr::rbind.fill(lapply(colnames(rep_FUS)[c(11:12)],
                                   function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
                                                                    type = "Fire", sum_multi =  FALSE,
@@ -580,6 +580,7 @@ fig2_alt
 #### Ignitions
 
 ``` r
+#summarise
 igs <- plyr::rbind.fill(lapply(colnames(rep_FUS)[c(11:12)],
                       function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
                                                        type = "Fire", behaviour = x, 
