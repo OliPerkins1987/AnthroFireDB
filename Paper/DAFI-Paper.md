@@ -1,27 +1,33 @@
 DAFI Paper
 ================
 James Millington
-2021-06-14
+2022-06-29
 
-  - [Overview](#overview)
-      - [Setup](#setup)
-  - [3. Results](#results)
-      - [3.1 Database Summary](#database-summary)
-          - [Figure 1](#figure-1)
-      - [Fire Purpose](#fire-purpose)
-          - [Table 2](#table-2)
-          - [Figure 2](#figure-2)
-          - [Figure 3](#figure-3)
-      - [3.3 Fire Suppression](#fire-suppression)
-          - [Figure 4](#figure-4)
-      - [3.4 Fire Policy](#fire-policy)
-          - [Figure 5](#figure-5)
-  - [4. Discussion](#discussion)
-      - [4.1 Improving the quality of anthropogenic fire
-        data](#improving-the-quality-of-anthropogenic-fire-data)
-      - [4.2 Modelling and observing anthropogenic fire
-        regimes](#modelling-and-observing-anthropogenic-fire-regimes)
-          - [Figure 6](#figure-6)
+-   [Overview](#overview)
+    -   [Setup](#setup)
+-   [2. Materials and Methods](#2-materials-and-methods)
+    -   [2.3 Database Summary and
+        Analysis](#23-database-summary-and-analysis)
+-   [3. Results](#3-results)
+    -   [3.1 Geographic Distribuion](#31-geographic-distribuion)
+        -   [Figure 1](#figure-1)
+    -   [3.2. Fire Use](#32-fire-use)
+        -   [3.2.1. Fire Purpose](#321-fire-purpose)
+        -   [Table 2](#table-2)
+        -   [Figure 2](#figure-2)
+        -   [Figure 3](#figure-3)
+    -   [3.3 Fire Suppression](#33-fire-suppression)
+        -   [Figure 4](#figure-4)
+    -   [3.4 Fire Policy](#34-fire-policy)
+        -   [Figure 5](#figure-5)
+-   [4. Discussion](#4-discussion)
+    -   [4.1 Improving the quality of anthropogenic fire
+        data](#41-improving-the-quality-of-anthropogenic-fire-data)
+    -   [4.2 Modelling and observing anthropogenic fire
+        regimes](#42-modelling-and-observing-anthropogenic-fire-regimes)
+        -   [Figure 6](#figure-6)
+    -   [4.3. Categorising Anthropogenic Fire Uses and
+        Regimes](#43-categorising-anthropogenic-fire-uses-and-regimes)
 
 # Overview
 
@@ -46,13 +52,13 @@ source("plots-script.r", local = knitr::knit_global())
 sessionInfo()
 ```
 
-    ## R version 3.6.3 (2020-02-29)
+    ## R version 4.1.3 (2022-03-10)
     ## Platform: x86_64-pc-linux-gnu (64-bit)
-    ## Running under: Linux Mint 19.3
+    ## Running under: Linux Mint 20.3
     ## 
     ## Matrix products: default
-    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.7.1
-    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.7.1
+    ## BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0
+    ## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
     ## 
     ## locale:
     ##  [1] LC_CTYPE=en_GB.UTF-8          LC_NUMERIC=C                 
@@ -67,36 +73,37 @@ sessionInfo()
     ## 
     ## other attached packages:
     ##  [1] rnaturalearthdata_0.1.0 rnaturalearth_0.1.0     sf_0.9-7               
-    ##  [4] scales_1.1.0            readxl_1.3.1            devtools_2.3.0         
-    ##  [7] usethis_1.6.1           openxlsx_4.2.3          xlsx_0.6.5             
-    ## [10] maps_3.3.0              viridisLite_0.3.0       forcats_0.4.0          
-    ## [13] stringr_1.4.0           dplyr_0.8.4             purrr_0.3.3            
-    ## [16] readr_1.3.1             tidyr_1.0.2             tibble_3.0.1           
-    ## [19] ggplot2_3.2.1           tidyverse_1.3.0        
+    ##  [4] scales_1.1.1            readxl_1.4.0            devtools_2.4.3         
+    ##  [7] usethis_2.1.6           openxlsx_4.2.5          xlsx_0.6.5             
+    ## [10] maps_3.4.0              viridisLite_0.4.0       forcats_0.5.1          
+    ## [13] stringr_1.4.0           dplyr_1.0.8             purrr_0.3.4            
+    ## [16] readr_2.1.2             tidyr_1.2.0             tibble_3.1.6           
+    ## [19] ggplot2_3.3.5           tidyverse_1.3.1        
     ## 
     ## loaded via a namespace (and not attached):
-    ##  [1] nlme_3.1-149       fs_1.3.1           lubridate_1.7.4    httr_1.4.1        
-    ##  [5] rprojroot_1.3-2    tools_3.6.3        backports_1.1.5    R6_2.4.1          
-    ##  [9] KernSmooth_2.23-18 DBI_1.1.0          lazyeval_0.2.2     colorspace_1.4-1  
-    ## [13] sp_1.4-2           withr_2.1.2        tidyselect_1.0.0   prettyunits_1.1.1 
-    ## [17] processx_3.4.2     compiler_3.6.3     cli_2.0.2          rvest_0.3.5       
-    ## [21] xml2_1.2.2         desc_1.2.0         classInt_0.4-3     callr_3.4.3       
-    ## [25] digest_0.6.25      rmarkdown_2.1      pkgconfig_2.0.3    htmltools_0.4.0   
-    ## [29] sessioninfo_1.1.1  dbplyr_1.4.2       rlang_0.4.6        rstudioapi_0.11   
-    ## [33] generics_0.0.2     jsonlite_1.6.1     zip_2.1.1          magrittr_1.5      
-    ## [37] Rcpp_1.0.4.6       munsell_0.5.0      fansi_0.4.1        lifecycle_0.2.0   
-    ## [41] stringi_1.4.5      yaml_2.2.1         pkgbuild_1.0.7     grid_3.6.3        
-    ## [45] crayon_1.3.4       lattice_0.20-41    haven_2.2.0        xlsxjars_0.6.1    
-    ## [49] hms_0.5.3          knitr_1.28         ps_1.3.0           pillar_1.4.4      
-    ## [53] pkgload_1.0.2      reprex_0.3.0       glue_1.4.0.9000    evaluate_0.14     
-    ## [57] remotes_2.1.1      modelr_0.1.5       vctrs_0.2.4        testthat_2.3.2    
-    ## [61] cellranger_1.1.0   gtable_0.3.0       assertthat_0.2.1   xfun_0.12         
-    ## [65] broom_0.5.4        e1071_1.7-3        class_7.3-18       rJava_0.9-13      
-    ## [69] memoise_1.1.0      units_0.6-5        ellipsis_0.3.0
+    ##  [1] fs_1.5.2           lubridate_1.8.0    httr_1.4.2         rprojroot_2.0.3   
+    ##  [5] tools_4.1.3        backports_1.4.1    utf8_1.2.2         R6_2.5.1          
+    ##  [9] KernSmooth_2.23-20 DBI_1.1.2          colorspace_2.0-3   sp_1.4-6          
+    ## [13] withr_2.5.0        tidyselect_1.1.2   prettyunits_1.1.1  processx_3.5.3    
+    ## [17] compiler_4.1.3     cli_3.3.0          rvest_1.0.2        xml2_1.3.3        
+    ## [21] desc_1.4.1         classInt_0.4-3     callr_3.7.0        proxy_0.4-26      
+    ## [25] digest_0.6.29      rmarkdown_2.13     pkgconfig_2.0.3    htmltools_0.5.2   
+    ## [29] sessioninfo_1.2.2  dbplyr_2.1.1       fastmap_1.1.0      rlang_1.0.2       
+    ## [33] rstudioapi_0.13    generics_0.1.2     jsonlite_1.8.0     zip_2.2.0         
+    ## [37] magrittr_2.0.3     Rcpp_1.0.8.3       munsell_0.5.0      fansi_1.0.3       
+    ## [41] lifecycle_1.0.1    stringi_1.7.6      yaml_2.3.5         brio_1.1.3        
+    ## [45] pkgbuild_1.3.1     grid_4.1.3         crayon_1.5.1       lattice_0.20-45   
+    ## [49] haven_2.4.3        xlsxjars_0.6.1     hms_1.1.1          knitr_1.38        
+    ## [53] ps_1.6.0           pillar_1.7.0       pkgload_1.2.4      reprex_2.0.1      
+    ## [57] glue_1.6.2         evaluate_0.15      remotes_2.4.2      modelr_0.1.8      
+    ## [61] vctrs_0.4.0        tzdb_0.3.0         testthat_3.1.4     cellranger_1.1.0  
+    ## [65] gtable_0.3.0       assertthat_0.2.1   cachem_1.0.6       xfun_0.30         
+    ## [69] broom_0.7.12       e1071_1.7-9        class_7.3-20       rJava_1.0-6       
+    ## [73] memoise_2.0.1      units_0.8-0        ellipsis_0.3.2
 
-# 3\. Results
+# 2. Materials and Methods
 
-## 3.1 Database Summary
+## 2.3 Database Summary and Analysis
 
 ``` r
 ns <- n_distinct(record_info$`Study.ID`)
@@ -109,7 +116,7 @@ pubs <- record_info %>%
 pubs
 ```
 
-    ## # A tibble: 4 x 3
+    ## # A tibble: 4 × 3
     ##   Study.Type     n   perc
     ##   <chr>      <int>  <dbl>
     ## 1 Academic    1707 94.4  
@@ -131,7 +138,7 @@ datsrc <- record_info %>%
 datsrc
 ```
 
-    ## # A tibble: 6 x 3
+    ## # A tibble: 6 × 3
     ##   Data.Source.s.        n  perc
     ##   <chr>             <int> <dbl>
     ## 1 Literature review   118  6.52
@@ -152,8 +159,8 @@ src.mix <- round(filter(datsrc, Data.Source.s.=='Mixed')$perc,0)
 #sum(datsrc$perc)
 ```
 
-In this initial data collection, data from 504 studies were collated
-from across 1809 human fire-related case studies.
+At the time of publication DAFI contains data from 1809 human
+fire‐related case studies collated from 504 sources.
 
 Data were overwhelmingly from academic publications (94% of case
 studies) but were also from reports produced by governments and NGOs
@@ -164,33 +171,6 @@ studies), Institutional Data Repositories (23%), Literature Review (7%),
 Remote Sensing (4%) or a combination (24%) of these data source types.
 The remaining case studies (\~3%) used expert elicitation, media
 reports, archival research and other reports as sources.
-
-When these data sources are mapped spatially (Figure 1) we find a
-prevalence of case studies using institutional data in Europe and North
-America versus a dominance of field studies in Asia and Africa.
-
-### Figure 1
-
-``` r
-srcmap <- map.behaviour.ras('Data.Source.s.', ras.function='mode')
-srcmap
-```
-
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
-
-``` r
-afrmap <- map.behaviour.ras('Anthropogenic fire regime', ras.function='mode')
-afrmap
-```
-
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-2-2.png)<!-- -->
-
-``` r
-fumap <- map.behaviour.ras('Fire purpose', ras.function='mode')
-fumap
-```
-
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-2-3.png)<!-- -->
 
 ``` r
 #number of case studies
@@ -253,9 +233,10 @@ cs.AFR <- sum(lu.AFR$n)
 
 Furthermore, we were able to define an AFR for only 1605 of the 1809
 case studies (Pre-industrial 261, Transition 850, Industrial 300,
-Post-industrial 194). The incompleteness of the database means that the
-number of values used in analyses below varies depending on which
-aspects of anthropogenic fire are being examined.
+Post-industrial 194) as land use information is not always provided or
+available. The incompleteness of the database means that the number of
+values used in analyses below varies depending on which aspects of
+anthropogenic fire are being examined.
 
 ``` r
 afrsrc <- merge(record_info, land_use, by.x= 'Case.Study.ID', by.y = 'Case Study ID')
@@ -282,7 +263,37 @@ afrsrc.s <- summary(table(afrsrc))
 afrsrc.p <- round(prop.table(table(afrsrc),2),2)
 ```
 
-The spatial distribution of AFRs (Figure 1b) indicates a similar
+# 3. Results
+
+## 3.1 Geographic Distribuion
+
+When DAFI data sources are mapped spatially (Figure 1) we find a
+prevalence of case studies using institutional data in Europe and North
+America versus a dominance of field studies in Asia and Africa.
+
+### Figure 1
+
+``` r
+srcmap <- map.behaviour.ras('Data.Source.s.', ras.function='mode')
+srcmap
+```
+
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+
+``` r
+afrmap <- map.behaviour.ras('Anthropogenic fire regime', ras.function='mode')
+afrmap
+```
+
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+
+``` r
+fumap <- map.behaviour.ras('Fire purpose', ras.function='mode')
+fumap
+```
+
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-5-3.png)<!-- --> The
+spatial distribution of AFRs (Figure 1b) indicates a similar
 distribution to data sources, with a prevalence of Industrial and
 Post-Industrial regimes in Europe and North America versus a dominance
 of Transition and Pre-Industrial regimes in Asia and Africa. A
@@ -293,7 +304,9 @@ and Transition (51%) regimes, whereas Secondary sources are the most
 frequent data sources for case studies of Industrial (46%) and
 Post-industrial (30%) regimes.
 
-## Fire Purpose
+## 3.2. Fire Use
+
+### 3.2.1. Fire Purpose
 
 ``` r
 rep_FUS <- rep_fire_use
@@ -309,7 +322,42 @@ fs.cs.afr <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[c(13:20)],
                                                                       sum_multi = F,
                                                                       grouping = c('Case Study ID', 'Anthropogenic fire regime','Fire purpose'),
                                                                       inc.Absence = F, escape.rm = T)}))
+```
 
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+
+``` r
 #summarise grouped (sum) by case study, AFR and fire use
 ba.cs.afr <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[c(21:26)],
                                      function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=rep_FUS,
@@ -318,6 +366,31 @@ ba.cs.afr <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[c(21:26)],
                                                                       grouping = c('Case Study ID', 'Anthropogenic fire regime','Fire purpose'),
                                                                       inc.Absence = F, escape.rm = T)}))
 ```
+
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime'. You can override using the `.groups` argument.
 
 ``` r
 #DAFI Records %
@@ -338,9 +411,9 @@ fu.contrib <- round(sum(fu.perc$fuperc) - fu.perc$fuperc[fu.perc$`Fire purpose` 
 Overall, 20 anthropogenic fire uses were identified during literature
 review, but many were closely related (e.g., ‘pasture renewal’ and
 ‘rangeland management’). After such similar types were combined (see
-Appendix C), seven dominant fire uses emerged (Table 2) each with more
-than 100 instances in the database and accounting for 93% of fire
-instance records.
+Supplementary Materials), seven dominant fire uses emerged (Table 2)
+each with more than 100 instances in the database and accounting for 93%
+of fire instance records.
 
 ### Table 2
 
@@ -350,7 +423,7 @@ instance records.
 fu.perc
 ```
 
-    ## # A tibble: 8 x 3
+    ## # A tibble: 8 × 3
     ##   `Fire purpose`             n fuperc
     ##   <chr>                  <int>  <dbl>
     ## 1 Arson                    118   3.48
@@ -465,7 +538,18 @@ igs <-  plyr::rbind.fill(lapply(colnames(rep_FUS)[c(11:12)],
                                                                    type = "Fire", sum_multi =  FALSE,
                                                                    behaviour = x, grouping = c('Fire type', 'Fire purpose'), 
                                                                    inc.Absence = F, escape.rm = F)}))
+```
 
+    ## `summarise()` has grouped output by 'Fire type'. You can override using the
+    ## `.groups` argument.
+    ## `summarise()` has grouped output by 'Fire type'. You can override using the
+    ## `.groups` argument.
+    ## `summarise()` has grouped output by 'Fire type'. You can override using the
+    ## `.groups` argument.
+    ## `summarise()` has grouped output by 'Fire type'. You can override using the
+    ## `.groups` argument.
+
+``` r
 igs.e <- igs %>% 
   filter(`Fire type` == 'Human, escaped' & !is.na(`Fire purpose`) & grepl('land cover',Behaviour)) %>%
   filter(`Fire purpose` != 'Hunter gatherer') %>%
@@ -486,14 +570,24 @@ esc.n <- rep_FUS %>%
   summarise(count = n()) %>%
   filter(`Fire purpose` %in% c('Crop field preparation', 'Crop residue burning', 'Pasture management')) %>%
   arrange(`Fire purpose`)
+```
 
+    ## `summarise()` has grouped output by 'Fire purpose'. You can override using the
+    ## `.groups` argument.
+
+``` r
 del.n <-  rep_FUS %>% 
   filter(`Fire type` == 'Human, deliberate'  & !is.na(`Fire purpose`)) %>%
   group_by_at(.vars = c('Fire purpose', 'Fire type')) %>%
   summarise(count = n()) %>%
   filter(`Fire purpose` %in% c('Crop field preparation', 'Crop residue burning', 'Pasture management')) %>%
   arrange(`Fire purpose`)
+```
 
+    ## `summarise()` has grouped output by 'Fire purpose'. You can override using the
+    ## `.groups` argument.
+
+``` r
 escaped <- 
 round(100*(esc.n$count / (esc.n$count + del.n$count)) * (igs.e$Combined.stat / (igs.e$Combined.stat + igs.d$Combined.stat)),2)
 
@@ -516,7 +610,18 @@ igs.o <-  plyr::rbind.fill(lapply(colnames(rep_FUS)[c(11:12)],
                                                                    type = "Fire", sum_multi =  FALSE,
                                                                    behaviour = x, grouping = c('Fire type', 'Fire purpose'), 
                                                                    escape.rm = F)}))
+```
 
+    ## `summarise()` has grouped output by 'Fire type'. You can override using the
+    ## `.groups` argument.
+    ## `summarise()` has grouped output by 'Fire type'. You can override using the
+    ## `.groups` argument.
+    ## `summarise()` has grouped output by 'Fire type'. You can override using the
+    ## `.groups` argument.
+    ## `summarise()` has grouped output by 'Fire type'. You can override using the
+    ## `.groups` argument.
+
+``` r
 igs.o.d <- igs.o %>% filter(`Fire type` == 'Human, deliberate' & !is.na(`Fire purpose`)) %>%
   filter(grepl('total', Behaviour)) %>%
   filter(!(`Fire purpose` %in% c('Crop field preparation', 'Crop residue burning'))) %>%
@@ -537,13 +642,23 @@ esc.n.g <- rep_FUS%>%
   group_by_at(.vars = c('Fire purpose', 'Fire type')) %>%
   filter(!(`Fire purpose` %in% c('Crop field preparation', 'Crop residue burning', 'Pasture management', 'Other', 'Arson'))) %>%
   summarise(count = n())
+```
 
+    ## `summarise()` has grouped output by 'Fire purpose'. You can override using the
+    ## `.groups` argument.
+
+``` r
 del.n.g <- rep_FUS%>% 
   filter(`Fire type` == 'Human, deliberate'  & !is.na(`Fire purpose`)) %>%
   group_by_at(.vars = c('Fire purpose', 'Fire type')) %>%
   filter(!(`Fire purpose` %in% c('Crop field preparation', 'Crop residue burning', 'Pasture management', 'Other', 'Arson'))) %>%
   summarise(count = n())
+```
 
+    ## `summarise()` has grouped output by 'Fire purpose'. You can override using the
+    ## `.groups` argument.
+
+``` r
 escaped.g <- 
 round(100*(esc.n.g$count / (esc.n.g$count + del.n.g$count)) * (numer / denom),2)
 
@@ -563,9 +678,28 @@ a <- filter(rep_fire_use, `Presence / Absence` == 'Presence')
 b <- filter(est_fire_use, `Presence / Absence` == 'Presence')
 
 fig2 <- bar.purpose.regime(a, b, bartype='fill')
-#ggsave('Figure2.png', plot=fig2, height=12, width=14, units='cm', dpi=300)
-fig2_alt <- bar.purpose.regime(rep_fire_use, est_fire_use, bartype='dodge')
+```
 
+    ## `summarise()` has grouped output by 'Fire creation ID'. You can override using
+    ## the `.groups` argument.
+    ## `summarise()` has grouped output by 'Fire creation ID'. You can override using
+    ## the `.groups` argument.
+
+``` r
+fig2 <- fig2 + theme(axis.text.x=element_text(color = "black", size=9),
+                     axis.text.y=element_text(color = "black", size=9)) +
+  labs(fill = "Fire Use", x = 'Anthropogenic Fire Regime')
+#ggsave(fig2, filename='Figure2_600.png', width=14, height=10, units='cm', dpi=600)
+
+fig2_alt <- bar.purpose.regime(rep_fire_use, est_fire_use, bartype='dodge')
+```
+
+    ## `summarise()` has grouped output by 'Fire creation ID'. You can override using
+    ## the `.groups` argument.
+    ## `summarise()` has grouped output by 'Fire creation ID'. You can override using
+    ## the `.groups` argument.
+
+``` r
 fig2
 ```
 
@@ -575,9 +709,8 @@ fig2
 fig2_alt
 ```
 
-![](DAFI-Paper_files/figure-gfm/unnamed-chunk-14-2.png)<!-- -->
-
-#### Ignitions
+![](DAFI-Paper_files/figure-gfm/unnamed-chunk-14-2.png)<!-- --> \###
+3.2.2. Physical Characteristics
 
 ``` r
 #summarise
@@ -585,7 +718,22 @@ igs <- plyr::rbind.fill(lapply(colnames(rep_FUS)[c(11:12)],
                       function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
                                                        type = "Fire", behaviour = x, 
                                                        grouping = c('Case Study ID'), escape.rm = T)}))
+```
 
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime', 'AFT', 'Fire purpose', 'Actual land cover'. You can override using the
+    ## `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime', 'AFT', 'Fire purpose', 'Actual land cover'. You can override using the
+    ## `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime', 'AFT', 'Fire purpose', 'Actual land cover'. You can override using the
+    ## `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime', 'AFT', 'Fire purpose', 'Actual land cover'. You can override using the
+    ## `.groups` argument.
+
+``` r
 igs.med <- round(median(igs$Combined.stat),2)
 igs.mean <- round(sum(igs$Combined.stat * igs$Combined.N) / sum(igs$Combined.N, na.rm = T),2)
 ```
@@ -594,14 +742,22 @@ Data in DAFI show that deliberate anthropogenic fires occur (where
 present) at a median and mean rate of 0.08 and 1.53 km-2 year-1
 respectively.
 
-#### Return Interval
-
 ``` r
 ### Fire Return Period - not annualised
 FR <- plyr::rbind.fill(lapply(colnames(rep_FUS)[c(27)], 
                                function (x){summarise.behaviour(temp.rep_fire_use=rep_FUS,temp.est_fire_use=est_FUS,
                                                                 type = "Fire", behaviour = x, 
                                                                 grouping = c('Case Study ID'), escape.rm = T)}))
+```
+
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime', 'AFT', 'Fire purpose', 'Actual land cover'. You can override using the
+    ## `.groups` argument.
+    ## `summarise()` has grouped output by 'Case Study ID', 'Anthropogenic fire
+    ## regime', 'AFT', 'Fire purpose', 'Actual land cover'. You can override using the
+    ## `.groups` argument.
+
+``` r
 ri.mean <- round(sum(FR$Combined.stat * FR$Combined.N) / sum(FR$Combined.N, na.rm = T),2)
 
 ### median FR - use all values for more accuracy (not possible for igs using aggregation)
@@ -616,7 +772,7 @@ ri.med <- round(median(all_fire$`Fire return period (years)`, na.rm = T),2)
 ```
 
 Similarly, fire return intervals are typically short, with median of 3
-and mean of 6.37 years.
+and mean of 6.4 years.
 
 ### Figure 3
 
@@ -681,9 +837,26 @@ cleanEffort <- function(supTbl, supLabel){
 }
 
 sup.c <- cleanEffort(dplyr::select(suppression, 1,2,9),'Control')
-sup.p <- cleanEffort(dplyr::select(suppression, 1,2,11),'Prevention')
-sup.e <- cleanEffort(dplyr::select(suppression, 1,2,13),'Extinction')
+```
 
+    ## `summarise()` has grouped output by 'Case', 'AFR'. You can override using the
+    ## `.groups` argument.
+
+``` r
+sup.p <- cleanEffort(dplyr::select(suppression, 1,2,11),'Prevention')
+```
+
+    ## `summarise()` has grouped output by 'Case', 'AFR'. You can override using the
+    ## `.groups` argument.
+
+``` r
+sup.e <- cleanEffort(dplyr::select(suppression, 1,2,13),'Extinction')
+```
+
+    ## `summarise()` has grouped output by 'Case', 'AFR'. You can override using the
+    ## `.groups` argument.
+
+``` r
 c.sup <- rbind(sup.c, sup.p, sup.e)  
 
 c.sup.c <- c.sup %>% 
@@ -700,7 +873,10 @@ fig4 <- c.sup.c %>%
   facet_grid(Suppression~.) +
   scale_fill_viridis_d(option = 'inferno') +
   xlab("Anthropogenic Fire Regime") +
-  ylab("Count")
+  ylab("Count") +
+  theme(axis.text.y=element_text(color = "black", size=9),
+        axis.text.x=element_text(color = "black", size=9))
+#ggsave(fig4, filename='Figure4_600.png', width=14, height=8.5, units='cm', dpi=600)
 
 #fill
 fig4_alt <- c.sup.c %>%
@@ -723,6 +899,13 @@ fig4_alt
 ![](DAFI-Paper_files/figure-gfm/unnamed-chunk-19-2.png)<!-- -->
 
 ## 3.4 Fire Policy
+
+    ## `summarise()` has grouped output by 'Anthropogenic fire regime'. You can
+    ## override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Anthropogenic fire regime'. You can
+    ## override using the `.groups` argument.
+    ## `summarise()` has grouped output by 'Anthropogenic fire regime'. You can
+    ## override using the `.groups` argument.
 
 ### Figure 5
 
@@ -750,7 +933,15 @@ pol.cs <- pol.cs %>%
   group_by_all %>%
   summarise(n= n()) %>%
   ungroup()
+```
 
+    ## `summarise()` has grouped output by 'Case', 'AFR', 'Unknown incentives',
+    ## 'Economic incentives', 'Environmental incentives', 'Health incentives',
+    ## 'Unknown restriction', 'Economic restriction', 'Environmental restriction',
+    ## 'Health restriction', 'Unknown ban', 'Economic ban', 'Environmental ban'. You
+    ## can override using the `.groups` argument.
+
+``` r
 #go long
 pol.cs <-pivot_longer(pol.cs, cols=c(`Unknown incentives`:`Health ban`), names_to="Rationale-Type")
 
@@ -767,14 +958,36 @@ pol.cs <- pol.cs %>%
   drop_na(AFR) %>%
   count(AFR, Type, Rationale,.drop=FALSE)
 
+#https://stackoverflow.com/a/12104207
+rationale_names <- list(
+  'Environmental'='Environment',
+  'Economic'='Economic',
+  'Health'='Health',
+  'Unknown'='Unknown'
+)
+
+rationale_labeller <- function(variable,value){
+  return(rationale_names[value])
+}
+
 #dodge
 fig5 <- pol.cs %>%
   ggplot(aes(x = AFR, y=n)) +
   geom_bar(aes(fill=Type),position='dodge',stat="identity") +
-  facet_grid(Rationale~.) +
+  facet_grid(Rationale~., labeller=rationale_labeller) +
   scale_fill_viridis_d(option = 'inferno') +
   xlab("Anthropogenic Fire Regime") +
-  ylab("Count")
+  ylab("Count") +
+  theme(axis.text.y=element_text(color = "black", size=9),
+        axis.text.x=element_text(color = "black", size=9),
+        strip.text = element_text(size = 8))
+```
+
+    ## Warning: The labeller API has been updated. Labellers taking `variable` and
+    ## `value` arguments are now deprecated. See labellers documentation.
+
+``` r
+ggsave(fig5, filename='Figure5_600.png', width=14, height=8.5, units='cm', dpi=600)
 
 #plot stacked
 fig5_alt <- pol.cs %>%
@@ -783,7 +996,7 @@ fig5_alt <- pol.cs %>%
   facet_grid(Rationale~.) +
   scale_fill_viridis_d(option = 'inferno') +
   xlab("Anthropogenic Fire Regime") +
-  ylab("Count")
+  ylab("Count") 
 
 fig5
 ```
@@ -796,7 +1009,7 @@ fig5_alt
 
 ![](DAFI-Paper_files/figure-gfm/unnamed-chunk-22-2.png)<!-- -->
 
-# 4\. Discussion
+# 4. Discussion
 
 ## 4.1 Improving the quality of anthropogenic fire data
 
@@ -867,7 +1080,7 @@ w <- ggplot() +
   geom_sf(data = myrect,
   #geom_rect(xmin = 50, xmax = 70, ymin = 50, ymax = 70, 
      fill = NA, colour = "red", size = 0.5) +
-  coord_sf(xlim = c(-170, 181), ylim = c(-60, 85), expand = FALSE) +
+  coord_sf(xlim = c(-170, 180), ylim = c(-60, 85), expand = FALSE) +
   geom_point(data=fsdat,aes(x = Longitude, y = Latitude, shape = `Fire purpose`, fill= `Fire quarter`),
              colour='black', size = 0.75, stroke=0.1, alpha=0.9) + 
   theme(
@@ -933,21 +1146,28 @@ count100ha <- rep_FUS %>%
 perc100 <- 100 - (100 * as.numeric(count100ha) / as.numeric(count0ha))
 ```
 
-We find that 59.57% of records in DAFI for mean size of deliberately
+We find that 60% of records in DAFI for mean size of deliberately
 started fires are \<21 ha, suggesting many anthropogenic fires will not
 be detected.
 
-Ramo et al. (2021) also found that fires \<100 ha are critically
-important for characterizing landscape fire on a global scale. Our
-results from DAFI support this; 78.72% of mean fire size records for
-deliberately started fires are \<100ha, and cropland fires in
-pre-industrial and transition regimes are generally smaller compared to
-fires ignited to burn across landscapes more broadly (Figure 3x\!).
+Use of Sentinel‐2 derived fire data (at 0.04 ha spatial resolution) has
+shown how MODIS‐derived products may underestimate burned area by up to
+80% across Africa and that fires \<100 ha are critically important for
+characterizing landscape fire on a global scale \[102\]. Our results
+from DAFI support this; 79% of mean fire size records for deliberately
+started fires are \<100ha, and cropland fires in pre-industrial and
+transition regimes are generally smaller compared to fires ignited to
+burn across landscapes more broadly (Figure 3a).
 
-Furthermore, the median and mean ignition density for deliberate
-anthropogenic fires in DAFI (0.08 and 1.53 respectively, section 3.2.2)
-are far greater than the median value suggested by the MODIS-derived
-global fire atlas (\< 0.01 fires km-2 year-1; Andela et al., 2019).
+We also find a discrepancy between the median density for deliberate
+anthropogenic fires in DAFI of 0.08 (Section 3.2.2) and the median value
+suggested by the MODIS‐derived global fire atlas of less than 0.01 fires
+km−2 year−1 \[44\]. The mean density in DAFI of 1.53 km−2 year−1
+indicates a skewed distribution and the DAFI‐MODIS discrepancy is most
+acute in regions of intensive crop residue burning in tightly packed
+fields.
+
+## 4.3. Categorising Anthropogenic Fire Uses and Regimes
 
 ``` r
 fs.fp <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[13:20],
@@ -965,6 +1185,6 @@ pas.min <- filter(fs.fp, `Fire purpose` == 'Pasture management' & grepl('min', B
 pas.max <- filter(fs.fp, `Fire purpose` == 'Pasture management' & grepl('max', Behaviour))$Combined.stat
 ```
 
-In particular, hunter-gatherer fire sizes vary more than pasture
+In particular, hunting-gathering fire sizes vary more than pasture
 managament fires, with sizes ranging from 1.4 ha to 8345 ha compared to
 4.4 ha to 244.8 ha.

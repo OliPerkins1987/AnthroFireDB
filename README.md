@@ -1,7 +1,7 @@
 # AnthroFireDB
 
-This repository is of code used to analyse the forthcoming Database of Anthropogenic Fire Impacts (DAFI). 
+This repository is of code used to analyse the forthcoming Database of Anthropogenic Fire Impacts (DAFI).
 
-'Paper' contains relevant files to reproduce figures and diagrams in Millington et al., (2021; in submission)
+The _Paper_ directory contains relevant files to reproduce values, figures and tables in [Millington _et al._ (2022)](https://doi.org/10.3390/fire5040087).
 
-Please see licence for 3rd party usage. 
+Please see licence for 3rd party usage.
