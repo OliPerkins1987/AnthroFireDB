@@ -1,7 +1,7 @@
 ---
 title: "DAFI Paper"
 author: "James Millington"
-date: "2021-06-14"
+date: "2022-06-29"
 output: 
   github_document:
     toc: true
@@ -45,9 +45,9 @@ sessionInfo()
 load.db()
 ```
 
-# 3. Results
+# 2. Materials and Methods
 
-## 3.1 Database Summary
+## 2.3 Database Summary and Analysis
 ```{r}
 ns <- n_distinct(record_info$`Study.ID`)
 ncs <- n_distinct(record_info$`Case.Study.ID`)
@@ -77,25 +77,12 @@ src.mix <- round(filter(datsrc, Data.Source.s.=='Mixed')$perc,0)
 
 #sum(datsrc$perc)
 ```
-In this initial data collection, data from `r ns` studies were collated from across `r ncs` human fire-related case studies. 
+At the time of publication DAFI contains data from `r ncs` human fire‐related case studies collated from `r ns` sources.
 
 Data were overwhelmingly from academic publications (`r aca`% of case studies) but were also from reports produced by governments and NGOs (`r govngo`%). 
 
 Case studies used data exclusively from Field Studies (`r src.fs`% of case studies), Institutional Data Repositories (`r src.idr`%), Literature Review (`r src.lr`%), Remote Sensing (`r src.rs`%) or a combination (`r src.mix`%) of these data source types. The remaining case studies (~`r src.oth`%) used expert elicitation, media reports, archival research and other reports as sources.
 
-When these data sources are mapped spatially (Figure 1) we find a prevalence of case studies using institutional data in Europe and North America versus a dominance of field studies in Asia and Africa. 
-
-### Figure 1
-```{r message=F, warning=F}
-srcmap <- map.behaviour.ras('Data.Source.s.', ras.function='mode')
-srcmap
-
-afrmap <- map.behaviour.ras('Anthropogenic fire regime', ras.function='mode')
-afrmap
-
-fumap <- map.behaviour.ras('Fire purpose', ras.function='mode')
-fumap
-```
 
 
 ```{r warning=FALSE}
@@ -153,7 +140,7 @@ lu.AFR <- land_use %>%
 cs.AFR <- sum(lu.AFR$n)
 ```
 
-Furthermore, we were able to define an AFR for only `r cs.AFR` of the `r ncs` case studies (Pre-industrial `r filter(lu.AFR, AFR=="Pre-industrial")$n`, Transition `r filter(lu.AFR, AFR=="Transition")$n`, Industrial `r filter(lu.AFR, AFR=="Industrial")$n`, Post-industrial `r filter(lu.AFR, AFR=="Post-industrial")$n`). The incompleteness of the database means that the number of values used in analyses below varies depending on which aspects of anthropogenic fire are being examined. 
+Furthermore, we were able to define an AFR for only `r cs.AFR` of the `r ncs` case studies (Pre-industrial `r filter(lu.AFR, AFR=="Pre-industrial")$n`, Transition `r filter(lu.AFR, AFR=="Transition")$n`, Industrial `r filter(lu.AFR, AFR=="Industrial")$n`, Post-industrial `r filter(lu.AFR, AFR=="Post-industrial")$n`) as land use information is not always provided or available. The incompleteness of the database means that the number of values used in analyses below varies depending on which aspects of anthropogenic fire are being examined. 
 
 ```{r}
 afrsrc <- merge(record_info, land_use, by.x= 'Case.Study.ID', by.y = 'Case Study ID')
@@ -169,9 +156,27 @@ afrsrc.s <- summary(table(afrsrc))
 afrsrc.p <- round(prop.table(table(afrsrc),2),2)
 ```
 
+# 3. Results
+
+## 3.1 Geographic Distribuion
+
+When DAFI data sources are mapped spatially (Figure 1) we find a prevalence of case studies using institutional data in Europe and North America versus a dominance of field studies in Asia and Africa. 
+
+### Figure 1
+```{r message=F, warning=F}
+srcmap <- map.behaviour.ras('Data.Source.s.', ras.function='mode')
+srcmap
+
+afrmap <- map.behaviour.ras('Anthropogenic fire regime', ras.function='mode')
+afrmap
+
+fumap <- map.behaviour.ras('Fire purpose', ras.function='mode')
+fumap
+```
 The spatial distribution of AFRs (Figure 1b) indicates a similar distribution to data sources, with a prevalence of Industrial and Post-Industrial regimes in Europe and North America versus a dominance of Transition and Pre-Industrial regimes in Asia and Africa. A Chi-square test for the association between AFR and data source indicates non-randomness (Chi-sq = `r round(afrsrc.s$statistic,0)`, df = `r afrsrc.s$parameter`, p < 0.001) and Primary sources dominate case studies of Pre-industrial (`r 100*max(afrsrc.p[,'Pre-industrial'])`% of case studies) and Transition (`r 100*max(afrsrc.p[,'Transition'])`%) regimes, whereas Secondary sources are the most frequent data sources for case studies of Industrial (`r 100*max(afrsrc.p[,'Industrial'])`%) and Post-industrial (`r 100*max(afrsrc.p[,'Post-industrial'])`%) regimes.   
 
-## Fire Purpose
+## 3.2. Fire Use
+### 3.2.1. Fire Purpose
 ```{r}
 rep_FUS <- rep_fire_use
 est_FUS <- est_fire_use
@@ -212,7 +217,7 @@ fu.perc <- rep_FUS %>%
 fu.contrib <- round(sum(fu.perc$fuperc) - fu.perc$fuperc[fu.perc$`Fire purpose` == 'Other'],0)
 ```
 
-Overall, 20 anthropogenic fire uses were identified during literature review, but many were closely related (e.g., ‘pasture renewal’ and ‘rangeland management’). After such similar types were combined (see Appendix C), seven dominant fire uses emerged (Table 2) each with more than 100 instances in the database and accounting for `r fu.contrib`% of fire instance records.
+Overall, 20 anthropogenic fire uses were identified during literature review, but many were closely related (e.g., ‘pasture renewal’ and ‘rangeland management’). After such similar types were combined (see Supplementary Materials), seven dominant fire uses emerged (Table 2) each with more than 100 instances in the database and accounting for `r fu.contrib`% of fire instance records.
 
 ### Table 2
 
@@ -376,15 +381,18 @@ a <- filter(rep_fire_use, `Presence / Absence` == 'Presence')
 b <- filter(est_fire_use, `Presence / Absence` == 'Presence')
 
 fig2 <- bar.purpose.regime(a, b, bartype='fill')
-#ggsave('Figure2.png', plot=fig2, height=12, width=14, units='cm', dpi=300)
+fig2 <- fig2 + theme(axis.text.x=element_text(color = "black", size=9),
+                     axis.text.y=element_text(color = "black", size=9)) +
+  labs(fill = "Fire Use", x = 'Anthropogenic Fire Regime')
+#ggsave(fig2, filename='Figure2_600.png', width=14, height=10, units='cm', dpi=600)
+
 fig2_alt <- bar.purpose.regime(rep_fire_use, est_fire_use, bartype='dodge')
 
 fig2
 fig2_alt
 ```
+### 3.2.2. Physical Characteristics
 
-
-#### Ignitions 
 ```{r}
 #summarise
 igs <- plyr::rbind.fill(lapply(colnames(rep_FUS)[c(11:12)],
@@ -395,10 +403,8 @@ igs <- plyr::rbind.fill(lapply(colnames(rep_FUS)[c(11:12)],
 igs.med <- round(median(igs$Combined.stat),2)
 igs.mean <- round(sum(igs$Combined.stat * igs$Combined.N) / sum(igs$Combined.N, na.rm = T),2)
 ```
-
 Data in DAFI show that deliberate anthropogenic fires occur (where present) at a median and mean rate of `r igs.med` and `r igs.mean` km-2 year-1 respectively. 
 
-#### Return Interval
 ```{r}
 ### Fire Return Period - not annualised
 FR <- plyr::rbind.fill(lapply(colnames(rep_FUS)[c(27)], 
@@ -418,7 +424,7 @@ all_fire <- all_fire %>% filter(`Fire type` == 'Human, deliberate' & `Presence /
 ri.med <- round(median(all_fire$`Fire return period (years)`, na.rm = T),2)
 ```
 
-Similarly, fire return intervals are typically short, with median of `r ri.med` and mean of `r ri.mean` years.
+Similarly, fire return intervals are typically short, with median of `r round(ri.med,1)` and mean of `r round(ri.mean,1)` years.
 
 ### Figure 3
 ```{r warning=F}
@@ -490,7 +496,10 @@ fig4 <- c.sup.c %>%
   facet_grid(Suppression~.) +
   scale_fill_viridis_d(option = 'inferno') +
   xlab("Anthropogenic Fire Regime") +
-  ylab("Count")
+  ylab("Count") +
+  theme(axis.text.y=element_text(color = "black", size=9),
+        axis.text.x=element_text(color = "black", size=9))
+#ggsave(fig4, filename='Figure4_600.png', width=14, height=8.5, units='cm', dpi=600)
 
 #fill
 fig4_alt <- c.sup.c %>%
@@ -584,14 +593,30 @@ pol.cs <- pol.cs %>%
   drop_na(AFR) %>%
   count(AFR, Type, Rationale,.drop=FALSE)
 
+#https://stackoverflow.com/a/12104207
+rationale_names <- list(
+  'Environmental'='Environment',
+  'Economic'='Economic',
+  'Health'='Health',
+  'Unknown'='Unknown'
+)
+
+rationale_labeller <- function(variable,value){
+  return(rationale_names[value])
+}
+
 #dodge
 fig5 <- pol.cs %>%
   ggplot(aes(x = AFR, y=n)) +
   geom_bar(aes(fill=Type),position='dodge',stat="identity") +
-  facet_grid(Rationale~.) +
+  facet_grid(Rationale~., labeller=rationale_labeller) +
   scale_fill_viridis_d(option = 'inferno') +
   xlab("Anthropogenic Fire Regime") +
-  ylab("Count")
+  ylab("Count") +
+  theme(axis.text.y=element_text(color = "black", size=9),
+        axis.text.x=element_text(color = "black", size=9),
+        strip.text = element_text(size = 8))
+ggsave(fig5, filename='Figure5_600.png', width=14, height=8.5, units='cm', dpi=600)
 
 #plot stacked
 fig5_alt <- pol.cs %>%
@@ -600,7 +625,7 @@ fig5_alt <- pol.cs %>%
   facet_grid(Rationale~.) +
   scale_fill_viridis_d(option = 'inferno') +
   xlab("Anthropogenic Fire Regime") +
-  ylab("Count")
+  ylab("Count") 
 
 fig5
 fig5_alt
@@ -680,7 +705,7 @@ w <- ggplot() +
   geom_sf(data = myrect,
   #geom_rect(xmin = 50, xmax = 70, ymin = 50, ymax = 70, 
      fill = NA, colour = "red", size = 0.5) +
-  coord_sf(xlim = c(-170, 181), ylim = c(-60, 85), expand = FALSE) +
+  coord_sf(xlim = c(-170, 180), ylim = c(-60, 85), expand = FALSE) +
   geom_point(data=fsdat,aes(x = Longitude, y = Latitude, shape = `Fire purpose`, fill= `Fire quarter`),
              colour='black', size = 0.75, stroke=0.1, alpha=0.9) + 
   theme(
@@ -739,11 +764,13 @@ count100ha <- rep_FUS %>%
 perc100 <- 100 - (100 * as.numeric(count100ha) / as.numeric(count0ha))
 ```
 
-We find that `r round(perc21,2)`% of records in DAFI for mean size of deliberately started fires are <21 ha, suggesting many anthropogenic fires will not be detected. 
+We find that `r round(perc21,0)`% of records in DAFI for mean size of deliberately started fires are <21 ha, suggesting many anthropogenic fires will not be detected. 
 
-Ramo et al. (2021) also found that fires <100 ha are critically important for characterizing landscape fire on a global scale. Our results from DAFI support this; `r round(perc100,2)`% of mean fire size records for deliberately started fires are <100ha, and cropland fires in pre-industrial and transition regimes are generally smaller compared to fires ignited to burn across landscapes more broadly (Figure 3x!).
+Use of Sentinel‐2 derived fire data (at 0.04 ha spatial resolution) has shown how MODIS‐derived products may underestimate burned area by up to 80% across Africa and that fires <100 ha are critically important for characterizing landscape fire on a global scale [102]. Our results from DAFI support this; `r round(perc100,0)`% of mean fire size records for deliberately started fires are <100ha, and cropland fires in pre-industrial and transition regimes are generally smaller compared to fires ignited to burn across landscapes more broadly (Figure 3a).
 
-Furthermore, the median and mean ignition density for deliberate anthropogenic fires in DAFI (`r igs.med` and `r igs.mean` respectively, section 3.2.2) are far greater than the median value suggested by the MODIS-derived global fire atlas (< 0.01 fires km-2 year-1; Andela et al., 2019).
+We also find a discrepancy between the median density for deliberate anthropogenic fires in DAFI of `r igs.med` (Section 3.2.2) and the median value suggested by the MODIS‐derived global fire atlas of less than 0.01 fires km−2 year−1 [44]. The mean density in DAFI of `r igs.mean` km−2 year−1 indicates a skewed distribution and the DAFI‐MODIS discrepancy is most acute in regions of intensive crop residue burning in tightly packed fields.
+
+## 4.3. Categorising Anthropogenic Fire Uses and Regimes
 
 ```{r}
 fs.fp <- plyr::rbind.fill(lapply(colnames(rep_fire_use)[13:20],
@@ -761,4 +788,4 @@ pas.min <- filter(fs.fp, `Fire purpose` == 'Pasture management' & grepl('min', B
 pas.max <- filter(fs.fp, `Fire purpose` == 'Pasture management' & grepl('max', Behaviour))$Combined.stat
 
 ```
-In particular, hunter-gatherer fire sizes vary more than pasture managament fires, with sizes ranging from `r round(hg.min,1)` ha to `r round(hg.max,1)` ha compared to `r round(pas.min,1)` ha to `r round(pas.max,1)` ha.
+In particular, hunting-gathering fire sizes vary more than pasture managament fires, with sizes ranging from `r round(hg.min,1)` ha to `r round(hg.max,1)` ha compared to `r round(pas.min,1)` ha to `r round(pas.max,1)` ha.
